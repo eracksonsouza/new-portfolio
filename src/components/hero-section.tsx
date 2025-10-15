@@ -21,13 +21,15 @@ const HeroSection = ({
   ],
 }: HeroSectionProps) => {
   return (
-    <div className="flex flex-col gap-8 lg:bg-transparent bg-white lg:p-0 p-6 lg:rounded-none rounded-b-lg lg:shadow-none shadow-lg">
+    <div className="flex flex-col gap-8 lg:bg-transparent bg-transparent lg:p-0 p-6 lg:rounded-none rounded-b-lg lg:shadow-none shadow-none">
       {/* Título e Subtítulo */}
       <div>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold lg:text-gray-900 text-white mb-4">
           {title}
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 mb-6">{subtitle}</p>
+        <p className="text-lg md:text-xl lg:text-gray-700 text-white/90 mb-6">
+          {subtitle}
+        </p>
 
         {/* Botões */}
         <div className="flex flex-wrap gap-4">
@@ -45,7 +47,7 @@ const HeroSection = ({
 
       {/* Descrição */}
       <div className="space-y-4">
-        <p className="text-base md:text-xl text-gray-800">
+        <p className="text-base md:text-xl lg:text-gray-800 text-white/90">
           Sou um desenvolvedor web apaixonado por tecnologia e inovação. Tenho
           um forte interesse por aprimorar minhas habilidades em desenvolvimento
           web full stack, buscando sempre novos desafios e oportunidades para

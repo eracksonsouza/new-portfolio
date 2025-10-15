@@ -19,7 +19,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -41,7 +41,7 @@ const Header = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white hover:text-[#fdb003] transition-colors duration-300 font-medium"
+                    className="text-black hover:text-[#fdb003] transition-colors duration-300 font-medium"
                   >
                     {link.label}
                   </Link>
@@ -53,7 +53,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-white hover:text-[#fdb003] transition-colors p-2"
+            className="md:hidden text-black hover:text-[#fdb003] transition-colors p-2"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -69,7 +69,7 @@ const Header = () => {
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-white hover:text-[#fdb003] hover:bg-white/5 transition-all duration-300 font-medium py-3 px-4 rounded"
+                    className="block text-black hover:text-[#fdb003] hover:bg-white/5 transition-all duration-300 font-medium py-3 px-4 rounded"
                   >
                     {link.label}
                   </Link>
