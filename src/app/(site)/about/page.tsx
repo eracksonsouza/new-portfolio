@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import SkillsSection from "@/components/skills-section";
+import { FaCode, FaGraduationCap } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
@@ -7,7 +8,6 @@ const AboutPage = () => {
       <Header />
 
       <main className="container mx-auto px-4 py-24 md:py-32 max-w-6xl">
-        {/* About Section */}
         <section className="mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Sobre mim
@@ -25,7 +25,9 @@ const AboutPage = () => {
 
           <div className="mt-8 space-y-4">
             <div className="flex items-start gap-3">
-              <span className="text-[#fdb003] text-xl mt-1">💻</span>
+              <div className="flex-shrink-0 w-10 h-10 bg-[#fdb003] rounded-lg flex items-center justify-center">
+                <FaCode className="text-white text-xl" />
+              </div>
               <p className="text-gray-300 text-lg">
                 Desenvolvedor Web Full-stack sempre em busca de criar soluções
                 que facilitam a vida de outras pessoas
@@ -33,7 +35,9 @@ const AboutPage = () => {
             </div>
 
             <div className="flex items-start gap-3">
-              <span className="text-[#fdb003] text-xl mt-1">🎓</span>
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                <FaGraduationCap className="text-white text-xl" />
+              </div>
               <p className="text-gray-300 text-lg">
                 Graduando em Análise e Desenvolvimento de Sistemas, pela
                 Universidade Estácio de Sá
