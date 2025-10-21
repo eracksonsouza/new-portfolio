@@ -44,62 +44,62 @@ const Projetos = [
 
 const ProjectsCard = () => {
   return (
-    <section className="py-16 px-4 bg-gray-900 text-white">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-bold mb-2">
-          Meus últimos <span className="text-yellow-500">Projetos</span>
+    <section className="min-h-screen bg-gradient-to-br from-[#2a2a2c] via-[#363638] to-[#424244] text-white">
+      <div className="container mx-auto px-4 py-24 md:py-32 max-w-7xl">
+        <h2 className="text-4xl md:text-5xl font-bold mb-2">
+          Meus últimos <span className="text-[#fdb003]">Projetos</span>
         </h2>
-        <div className="w-24 h-1 bg-yellow-500 mb-12"></div>
+        <div className="w-16 h-1 bg-[#fdb003] mb-12"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {Projetos.map((projeto) => (
             <div
               key={projeto.id}
-              className="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group"
+              className="bg-[#1a1d23] rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group shadow-xl"
             >
-              <div className="relative h-64 w-full overflow-hidden">
+              <div className="relative h-80 w-full overflow-hidden">
                 <Image
                   src={projeto.image}
                   alt={projeto.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                
+
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                   <Link
                     href={projeto.repository}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-yellow-500 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors"
+                    className="flex items-center gap-2 bg-[#fdb003] text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-[#e09f02] transition-colors text-base"
                   >
-                    <Code size={20} />
+                    <Code size={22} />
                     Código
                   </Link>
                   <Link
                     href={projeto.site}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-400 transition-colors"
+                    className="flex items-center gap-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-colors text-base"
                   >
-                    <ExternalLink size={20} />
+                    <ExternalLink size={22} />
                     Demo
                   </Link>
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-yellow-500">
+              <div className="p-8">
+                <h3 className="text-2xl font-bold mb-4 text-[#fdb003]">
                   {projeto.title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-300 text-base mb-6 leading-relaxed">
                   {projeto.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {projeto.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-4 py-2 bg-yellow-500 text-gray-900 text-sm font-medium rounded-full"
+                      className="px-5 py-2.5 bg-[#fdb003] text-gray-900 text-sm font-medium rounded-full"
                     >
                       {tech}
                     </span>
