@@ -1,6 +1,8 @@
-import projetoNei from "@/../../public/assets/projetos/projeto-nei.png";
-import projetoSearchGit from "@/../../public/assets/projetos/search-github-user.png";
-import projetoTheMovie from "@/../../public/assets/projetos/the-movie.png";
+import esStore from "@/../../public/assets/projetos/es-store.png";
+import financeControl from "@/../../public/assets/projetos/finance-control.png";
+import neiMarket from "@/../../public/assets/projetos/nei-analytcs.png";
+import lpPsic from "@/../../public/assets/projetos/lp-psic.png";
+import petDev from "@/../../public/assets/projetos/petdev.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Code, ExternalLink } from "lucide-react";
@@ -10,35 +12,62 @@ const Projetos = [
     id: 1,
     title: "NEI MARKET ANALYTICS",
     description:
-      "Projeto de análise de mercado: Criptomoedas, ações, fundos imobiliários, bolsa de valores com o intuito de passar dados em tempo real. Além disso o projeto tem um chat bot que usa a API do gemini para responder perguntas ao usuário.",
-    image: projetoNei,
-    link: "https://projetonei.com.br",
+      "Plataforma de análise de mercado que reúne dados em tempo real sobre criptomoedas, ações e fundos imobiliários. Conta com um backend em Express.js para integração de múltiplas APIs financeiras e um frontend moderno em Vue.js + Tailwind CSS. Inclui um chatbot inteligente alimentado pela API Gemini para responder dúvidas dos usuários.",
+    image: neiMarket,
+    link: "https://nei-market-analytics.com.br/",
     repository: "https://github.com/bush1D3v/NEI_market_analytics",
     site: "https://nei-market-analytics.com.br/",
     technologies: ["Vue.js", "TypeScript", "Express.js", "Tailwind CSS"],
   },
   {
     id: 2,
-    title: "THE MOVIE API",
+    title: "ES-STORE",
     description:
-      "O projeto consiste em fazer o consumo de uma API de filmes e exibir os filmes na tela com informações como: poster, título, sinopse, gênero, duração e data de lançamento.",
-    image: projetoTheMovie,
-    link: "https://the-movie-eracksons.vercel.app",
-    repository: "https://github.com/eracksonsouza/Erackson1-05-APi-The-Movie",
-    site: "https://eracksont-05-api-the-movie-1siezwwho-erackson-souzas-projects.vercel.app/",
-    technologies: ["CSS", "JavaScript", "React", "Axios"],
+      "E-commerce completo desenvolvido com Next.js, Tailwind CSS e TypeScript. Apresenta uma interface moderna e responsiva, com página de produtos, carrinho dinâmico e fluxo de compra intuitivo, proporcionando uma ótima experiência ao usuário.",
+    image: esStore,
+    link: "https://es-store-beryl.vercel.app",
+    repository: "https://github.com/eracksonsouza/es-store",
+    site: "https://es-store.vercel.app/",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     id: 3,
-    title: "SEARCH USER GITHUB",
+    title: "FINANCE CONTROL",
     description:
-      "O projeto consiste em consumir a API do GitHub utilizando a função fetch. O usuário digita um nome de usuário e com base nesse nome, os dados relacionados a esse usuário são retornados e exibidos diretamente na interface da aplicação.",
-    image: projetoSearchGit,
-    link: "https://search-github-user-eracksons.vercel.app",
-    repository:
-      "https://github.com/eracksonsouza/03-Search-User-Quest-APi-GitHub",
-    site: "https://eracksonsouza.github.io/03-Search-User-Quest-APi-GitHub/",
-    technologies: ["CSS", "JavaScript", "Fetch"],
+      "Aplicação web para controle financeiro pessoal desenvolvida com React, TypeScript e Tailwind CSS. Permite registrar receitas e despesas, categorizar transações e visualizar gráficos interativos para acompanhar o orçamento. Possui autenticação e armazenamento seguro de dados.",
+    image: financeControl,
+    link: "https://finance-control-psi.vercel.app/",
+    repository: "https://github.com/eracksonsouza/finance-pocket",
+    site: "https://finance-control-psi.vercel.app/",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Betha Auth",
+      "Supabase",
+    ],
+  },
+  {
+    id: 4,
+    title: "LP-PSIC",
+    description:
+      "Landing page desenvolvida com Next.js e Tailwind CSS para divulgação de serviços de psicologia. O projeto apresenta informações claras sobre os atendimentos, depoimentos de clientes e um formulário de contato funcional, com foco em conversão e credibilidade.",
+    image: lpPsic,
+    link: "https://lp-psic.vercel.app/",
+    repository: "https://github.com/eracksonsouza/lp-psic",
+    site: "https://lp-psic.vercel.app/",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: 5,
+    title: "PETDEV",
+    description:
+      "Plataforma para agendamento e divulgação de serviços de PetShop, desenvolvida com Next.js, TypeScript e Tailwind CSS. Permite que os usuários conheçam os serviços oferecidos, agendem atendimentos e entrem em contato diretamente via WhatsApp.",
+    image: petDev,
+    link: "https://petdev.vercel.app/",
+    repository: "https://github.com/eracksonsouza/petdev",
+    site: "https://petdev.vercel.app/",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
   },
 ];
 
