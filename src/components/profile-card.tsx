@@ -18,14 +18,13 @@ const ProfileCard = ({
   name = "Erackson Souza",
   title = "DESENVOLVEDOR WEB",
   socialLinks = {
-    linkedin: "https://www.linkedin.com/in/seu-perfil",
-    github: "https://github.com/seu-usuario",
-    whatsapp: "https://wa.me/5511999999999",
-    instagram: "https://www.instagram.com/seu-usuario",
+    linkedin: "https://www.linkedin.com/in/eracksonsouza/",
+    github: "https://github.com/eracksonsouza",
+    whatsapp: "https://wa.me/+5584991153472",
+    instagram: "https://www.instagram.com/eracksonsouza/",
   },
 }: ProfileCardProps) => (
   <div className="w-full max-w-md mx-auto bg-gradient-to-b from-[#fdb003] to-[#f59e0b] lg:rounded-lg rounded-t-lg shadow-2xl overflow-hidden">
-    {/* Foto de perfil */}
     <div className="pt-12 pb-8 flex justify-center">
       <div className="relative w-52 h-52 rounded-full border-4 border-white shadow-lg overflow-hidden">
         <Image
@@ -38,11 +37,9 @@ const ProfileCard = ({
       </div>
     </div>
 
-    {/* Informações */}
     <div className="text-center px-8 pb-8">
       <h2 className="text-white text-3xl font-bold mb-3">{name}</h2>
 
-      {/* Linha divisória */}
       <div className="w-48 h-0.5 bg-white/30 mx-auto mb-4"></div>
 
       <p className="text-white/90 text-sm tracking-[0.3em] uppercase font-light">
@@ -50,7 +47,6 @@ const ProfileCard = ({
       </p>
     </div>
 
-    {/* Redes Sociais */}
     <div className="bg-white py-6">
       <div className="flex justify-center items-center gap-6">
         {socialLinks.linkedin && (
