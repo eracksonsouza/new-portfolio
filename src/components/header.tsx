@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoES from "@/../public/assets/logo.png";
+import logoES from "@/../public/assets/logo-es.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -22,7 +22,6 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <Link href="/" className="relative h-12 w-auto">
             <Image
               src={logoES}
@@ -34,7 +33,6 @@ const Header = () => {
             />
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-8">
               {navLinks.map((link) => (
@@ -50,7 +48,6 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-black hover:text-[#fdb003] transition-colors p-2"
@@ -60,7 +57,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden pb-4">
             <ul className="flex flex-col gap-2">
