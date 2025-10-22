@@ -49,7 +49,7 @@ const Projetos = [
   },
   {
     id: 4,
-    title: "LP-PSIC",
+    title: "Landing Page Dra. Marina",
     description:
       "Landing page desenvolvida com Next.js e Tailwind CSS para divulgação de serviços de psicologia. O projeto apresenta informações claras sobre os atendimentos, depoimentos de clientes e um formulário de contato funcional, com foco em conversão e credibilidade.",
     image: lpPsic,
