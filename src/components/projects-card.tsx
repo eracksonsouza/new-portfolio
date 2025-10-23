@@ -1,3 +1,5 @@
+"use client";
+
 import esStore from "@/../../public/assets/projetos/es-store.png";
 import financeControl from "@/../../public/assets/projetos/finance-control.png";
 import neiMarket from "@/../../public/assets/projetos/nei-analytcs.png";
@@ -6,6 +8,18 @@ import petDev from "@/../../public/assets/projetos/petdev.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Code, ExternalLink } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-creative";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  EffectCreative,
+} from "swiper/modules";
+import styles from "@/app/style/projects-card.module.css";
 
 const Projetos = [
   {
@@ -80,64 +94,92 @@ const ProjectsCard = () => {
         </h2>
         <div className="w-16 h-1 bg-[#fdb003] mb-12"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay, EffectCreative]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+          }}
+          className={styles.projectsSwiper}
+        >
           {Projetos.map((projeto) => (
-            <div
-              key={projeto.id}
-              className="bg-[#1a1d23] rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group shadow-xl"
-            >
-              <div className="relative h-80 w-full overflow-hidden">
-                <Image
-                  src={projeto.image}
-                  alt={projeto.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+            <SwiperSlide key={projeto.id}>
+              <div className="bg-[#1a1d23] rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group shadow-xl h-full">
+                <div className="relative h-80 w-full overflow-hidden">
+                  <Image
+                    src={projeto.image}
+                    alt={projeto.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
 
-                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <Link
-                    href={projeto.repository}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-[#fdb003] text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-[#e09f02] transition-colors text-base"
-                  >
-                    <Code size={22} />
-                    Código
-                  </Link>
-                  <Link
-                    href={projeto.site}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-colors text-base"
-                  >
-                    <ExternalLink size={22} />
-                    Demo
-                  </Link>
-                </div>
-              </div>
-
-              <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-[#fdb003]">
-                  {projeto.title}
-                </h3>
-                <p className="text-gray-300 text-base mb-6 leading-relaxed">
-                  {projeto.description}
-                </p>
-
-                <div className="flex flex-wrap gap-3">
-                  {projeto.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-5 py-2.5 bg-[#fdb003] text-gray-900 text-sm font-medium rounded-full"
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    <Link
+                      href={projeto.repository}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-[#fdb003] text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-[#e09f02] transition-colors text-base"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      <Code size={22} />
+                      Código
+                    </Link>
+                    <Link
+                      href={projeto.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-colors text-base"
+                    >
+                      <ExternalLink size={22} />
+                      Demo
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-[#fdb003]">
+                    {projeto.title}
+                  </h3>
+                  <p className="text-gray-300 text-base mb-6 leading-relaxed">
+                    {projeto.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {projeto.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-5 py-2.5 bg-[#fdb003] text-gray-900 text-sm font-medium rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );
