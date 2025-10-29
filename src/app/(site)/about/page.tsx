@@ -1,12 +1,9 @@
-import Header from "@/components/header";
 import SkillsSection from "@/components/skills-section";
 import { FaCode, FaGraduationCap } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2a2a2c] via-[#363638] to-[#424244]">
-      <Header />
-
       <main className="container mx-auto px-4 py-24 md:py-32 max-w-6xl">
         <section className="mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
