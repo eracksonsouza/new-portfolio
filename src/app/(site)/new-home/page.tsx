@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import fotoHero from "@/../public/assets/foto-eu-portfolio-home.png";
+const fotoHero = "/assets/eu.png";
 
 // Ajuste fino do enquadramento da foto (em porcentagem)
 const FOCAL_X = 82; // 0% esquerda, 100% direita

@@ -30,6 +30,8 @@ export function Carousel({
   buttonColor = "#fdb003",
   indicatorColor = "#fdb003",
 }: CarouselProps) {
+  const translateValue = currentIndex * (100 / itemsPerPage);
+
   return (
     <div className="relative mb-8 md:mb-12 px-0 md:px-12">
       <button
@@ -54,7 +56,7 @@ export function Carousel({
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
+            transform: `translateX(-${translateValue}%)`,
           }}
         >
           {children}
@@ -86,11 +88,10 @@ export function Carousel({
             <button
               key={index}
               onClick={() => onGoToSlide(index)}
-              className={`h-2 rounded-full transition-all ${
-                currentIndex === index
+              className={`h-2 rounded-full transition-all ${currentIndex === index
                   ? "w-6 md:w-8"
                   : "w-2 bg-white/30 hover:bg-white/50"
-              }`}
+                }`}
               style={{
                 backgroundColor:
                   currentIndex === index ? indicatorColor : undefined,

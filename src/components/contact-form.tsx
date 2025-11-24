@@ -100,7 +100,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="bg-[#fdb003] w-full hover:bg-[#fdb003] text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
       >
         {isPending ? (
           <>

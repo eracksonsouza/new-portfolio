@@ -7,9 +7,8 @@ import lpPsic from "@/../../public/assets/projetos/lp-psic.png";
 import petDev from "@/../../public/assets/projetos/petdev.png";
 import Image from "next/image";
 import Link from "next/link";
-import { Code, ExternalLink } from "lucide-react";
-import { useCarousel } from "@/hooks/useCarousel";
-import { Carousel } from "@/components/ui/carousel";
+import { Code, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Projetos = [
   {
@@ -27,7 +26,6 @@ const Projetos = [
   },
   {
     id: 2,
-
     title: "ES-STORE",
     description:
       "E-commerce moderno construído com Next.js, TypeScript e Tailwind CSS, com interface responsiva e fluida. Oferece páginas de produto dinâmicas, carrinho interativo e um fluxo de compra otimizado para mobile. O projeto foi desenhado para melhorar a experiência de compra e conversão, aplicando boas práticas de UI/UX e performance.",
@@ -41,7 +39,6 @@ const Projetos = [
   },
   {
     id: 3,
-
     title: "FINANCE CONTROL",
     description:
       "Aplicação web para gestão financeira pessoal, desenvolvida com React, TypeScript, Supabase e Tailwind CSS. Permite registrar receitas e despesas, categorizar transações e visualizar gráficos interativos que ajudam o usuário a entender e controlar seu orçamento. O sistema conta com autenticação segura e armazenamento persistente.",
@@ -61,7 +58,6 @@ const Projetos = [
   },
   {
     id: 4,
-
     title: "Landing Page — Dra. Marina",
     description:
       "Landing page feita em Next.js e Tailwind CSS para divulgação de serviços de psicologia. Foco total em clareza e credibilidade, apresentando informações sobre os atendimentos, depoimentos de pacientes e um formulário funcional de contato. O design transmite empatia e profissionalismo, conectando novos pacientes com a psicóloga de forma simples e humana.",
@@ -88,32 +84,42 @@ const Projetos = [
   },
 ];
 
-const ProjectsCard = () => {
-  const {
-    currentIndex,
-    itemsPerPage,
-    maxIndex,
-    handlePrev,
-    handleNext,
-    goToSlide,
-    canGoPrev,
-    canGoNext,
-    pauseAutoplay,
-    resumeAutoplay,
-  } = useCarousel({
-    totalItems: Projetos.length,
-    breakpoints: { mobile: 1, tablet: 2, desktop: 3 },
-    autoplay: true,
-    autoplayInterval: 5000,
-    loop: true,
-  });
+export default function ProjectsCard() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+
+  // Detectar tamanho da tela
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerPage(1); // Mobile: 1 card
+      } else if (window.innerWidth < 1024) {
+        setItemsPerPage(2); // Tablet: 2 cards
+      } else {
+        setItemsPerPage(3); // Desktop: 3 cards
+      }
+      setCurrentIndex(0); // Reset ao mudar tamanho
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, Projetos.length - itemsPerPage);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  };
 
   return (
     <section
       id="projects"
       className="min-h-screen bg-[#0a0a0a] py-12 md:py-20 px-4 md:px-6"
-      onMouseEnter={pauseAutoplay}
-      onMouseLeave={resumeAutoplay}
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-left mb-12 md:mb-16 mt-4">
@@ -130,88 +136,124 @@ const ProjectsCard = () => {
         </div>
 
         {/* Carrossel */}
-        <Carousel
-          currentIndex={currentIndex}
-          itemsPerPage={itemsPerPage}
-          maxIndex={maxIndex}
-          onPrev={handlePrev}
-          onNext={handleNext}
-          onGoToSlide={goToSlide}
-          canGoPrev={canGoPrev}
-          canGoNext={canGoNext}
-          buttonColor="#fdb003"
-          indicatorColor="#fdb003"
-        >
-          {Projetos.map((projeto) => (
+        <div className="relative mb-8 md:mb-12">
+          {/* Botão Anterior */}
+          <button
+            onClick={handlePrev}
+            disabled={currentIndex === 0}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed rounded-full p-2 md:p-3 transition-all"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white" />
+          </button>
+
+          <div className="overflow-hidden px-2 md:px-0">
             <div
-              key={projeto.id}
-              className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
+              className="flex gap-0 md:gap-6 transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)`,
+              }}
             >
-              <div className="bg-[#111]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#fdb003]/30 hover:transform hover:translate-y-[-8px] hover:scale-[1.02] transition-all duration-300 h-full flex flex-col group">
-                <div className="relative h-[280px] md:h-[350px] overflow-hidden">
-                  <Image
-                    src={projeto.image}
-                    alt={projeto.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-125"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              {Projetos.map((projeto) => (
+                <div
+                  key={projeto.id}
+                  className="flex-shrink-0 w-full px-2 md:px-0 md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                >
+                  <div className="bg-[#111]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#fdb003]/30 hover:transform hover:translate-y-[-8px] hover:scale-[1.02] transition-all duration-300 h-full flex flex-col group">
+                    <div className="relative h-[280px] md:h-[350px] overflow-hidden">
+                      <Image
+                        src={projeto.image}
+                        alt={projeto.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-                  <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 md:gap-4">
-                    <Link
-                      href={projeto.site}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-[#fdb003]/10 hover:bg-[#fdb003] hover:text-black border border-[#fdb003] text-[#fdb003] px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm transition-all hover:-translate-y-1"
-                    >
-                      <ExternalLink size={16} />
-                      <span>Ver site</span>
-                    </Link>
-                    <Link
-                      href={projeto.repository}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-[#fdb003]/10 hover:bg-[#fdb003] hover:text-black border border-[#fdb003] text-[#fdb003] px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm transition-all hover:-translate-y-1"
-                    >
-                      <Code size={16} />
-                      <span>Código</span>
-                    </Link>
+                      <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 md:gap-4">
+                        <Link
+                          href={projeto.site}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 bg-[#fdb003]/10 hover:bg-[#fdb003] hover:text-black border border-[#fdb003] text-[#fdb003] px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm transition-all hover:-translate-y-1"
+                        >
+                          <ExternalLink size={16} />
+                          <span>Ver site</span>
+                        </Link>
+                        <Link
+                          href={projeto.repository}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 bg-[#fdb003]/10 hover:bg-[#fdb003] hover:text-black border border-[#fdb003] text-[#fdb003] px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm transition-all hover:-translate-y-1"
+                        >
+                          <Code size={16} />
+                          <span>Código</span>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="p-5 md:p-6 flex flex-col gap-3 md:gap-4 flex-1">
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-white text-base md:text-lg font-bold leading-tight">
+                          {projeto.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed line-clamp-4">
+                        {projeto.description}
+                      </p>
+                      <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-4 rounded">
+                        <span className="text-lg md:text-xl flex-shrink-0">
+                          💡
+                        </span>
+                        <p className="text-gray-200 text-xs md:text-sm leading-relaxed">
+                          <strong className="text-[#fdb003] font-semibold">
+                            Impacto:
+                          </strong>{" "}
+                          {projeto.impact}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-2 mt-auto pt-3 md:pt-4">
+                        {projeto.technologies.map((tech, index) => (
+                          <span
+                            key={index}
+                            className="px-2.5 md:px-3 py-1 md:py-1.5 bg-white/5 border border-white/10 hover:border-[#fdb003] hover:bg-[#fdb003]/10 hover:text-[#fdb003] rounded-md text-gray-400 text-[10px] md:text-xs font-medium transition-all"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="p-5 md:p-6 flex flex-col gap-3 md:gap-4 flex-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-white text-base md:text-lg font-bold leading-tight">
-                      {projeto.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 text-xs md:text-sm leading-relaxed line-clamp-4">
-                    {projeto.description}
-                  </p>
-                  <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-4 rounded">
-                    <span className="text-lg md:text-xl flex-shrink-0">💡</span>
-                    <p className="text-gray-200 text-xs md:text-sm leading-relaxed">
-                      <strong className="text-[#fdb003] font-semibold">
-                        Impacto:
-                      </strong>{" "}
-                      {projeto.impact}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-auto pt-3 md:pt-4">
-                    {projeto.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-2.5 md:px-3 py-1 md:py-1.5 bg-white/5 border border-white/10 hover:border-[#fdb003] hover:bg-[#fdb003]/10 hover:text-[#fdb003] rounded-md text-gray-400 text-[10px] md:text-xs font-medium transition-all"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </Carousel>
+          </div>
 
+          {/* Botão Próximo */}
+          <button
+            onClick={handleNext}
+            disabled={currentIndex >= maxIndex}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed rounded-full p-2 md:p-3 transition-all"
+            aria-label="Próximo"
+          >
+            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white" />
+          </button>
+        </div>
+
+        {/* Indicadores */}
+        <div className="flex justify-center gap-2 mb-8 md:mb-12">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-2 rounded-full transition-all ${currentIndex === index
+                ? "bg-[#fdb003] w-6 md:w-8"
+                : "bg-white/30 hover:bg-white/50 w-2"
+                }`}
+              aria-label={`Ir para slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Botão CTA */}
         <div className="flex justify-center">
           <Link
             href="#contact"
@@ -223,6 +265,4 @@ const ProjectsCard = () => {
       </div>
     </section>
   );
-};
-
-export default ProjectsCard;
+}
