@@ -1,5 +1,39 @@
 import SkillsSection from "@/components/skills-section";
 import { FaCode, FaGraduationCap } from "react-icons/fa";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sobre Mim",
+  description:
+    "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, graduando em Análise e Desenvolvimento de Sistemas. Experiência com React, Next.js, TypeScript, Node.js e mais.",
+  keywords: [
+    "Sobre Erackson Souza",
+    "Desenvolvedor Full-Stack",
+    "Formação",
+    "Habilidades",
+    "Experiência",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+  ],
+  openGraph: {
+    title: "Sobre Mim | Erackson Souza",
+    description:
+      "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, graduando em Análise e Desenvolvimento de Sistemas.",
+    url: "https://erackson-souza.vercel.app/about",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary",
+    title: "Sobre Mim | Erackson Souza",
+    description:
+      "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, graduando em Análise e Desenvolvimento de Sistemas.",
+  },
+  alternates: {
+    canonical: "https://erackson-souza.vercel.app/about",
+  },
+};
 
 const AboutPage = () => {
   return (

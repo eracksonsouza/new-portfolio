@@ -1,4 +1,34 @@
 import ContactForm from "@/components/contact-form";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contato",
+  description:
+    "Entre em contato com Erackson Souza para discutir projetos, oportunidades de colaboração ou tirar dúvidas sobre desenvolvimento web.",
+  keywords: [
+    "Contato Erackson Souza",
+    "Orçamento",
+    "Projetos",
+    "Colaboração",
+    "Desenvolvedor para contratar",
+  ],
+  openGraph: {
+    title: "Contato | Erackson Souza",
+    description:
+      "Entre em contato com Erackson Souza para discutir projetos, oportunidades de colaboração ou tirar dúvidas sobre desenvolvimento web.",
+    url: "https://erackson-souza.vercel.app/contact",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Contato | Erackson Souza",
+    description:
+      "Entre em contato com Erackson Souza para discutir projetos e oportunidades.",
+  },
+  alternates: {
+    canonical: "https://erackson-souza.vercel.app/contact",
+  },
+};
 
 const ContactPage = () => {
   return (
