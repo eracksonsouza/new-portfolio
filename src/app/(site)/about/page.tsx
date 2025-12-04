@@ -1,6 +1,7 @@
 import SkillsSection from "@/components/skills-section";
-import { FaCode, FaGraduationCap } from "react-icons/fa";
 import type { Metadata } from "next";
+import ProfessionalExperience from "@/components/professional-experience";
+import EducationSection from "@/components/educacion-section";
 
 export const metadata: Metadata = {
   title: "Sobre Mim",
@@ -46,37 +47,21 @@ const AboutPage = () => {
           <div className="h-1 w-16 bg-[#fdb003] mb-8"></div>
 
           <p className="text-gray-300 text-lg leading-relaxed max-w-3xl">
-            Sou um desenvolvedor web apaixonado por tecnologia e inovação. Tenho
-            um forte interesse por aprimorar minhas habilidades em
-            desenvolvimento web full stack, buscando sempre novos desafios e
-            oportunidades para aprender e crescer. Experiência com tecnologias
-            como JavaScript, TypeScript, React, Next.js, Node.js e Tailwind CSS
-            no front-end, e de backend com Express.js, Node.js e APIs Rest.
+            Desenvolvedor full-stack que acredita em código como ferramenta de
+            transformação. Trabalho diariamente com{" "}
+            <span className="font-bold">
+              JavaScript, TypeScript, React, Next.js, Node.js e Tailwind
+            </span>
+            , construindo desde interfaces acessíveis até APIs robustas com
+            Express e Fastify. Gosto de resolver problemas reais, explorar novas
+            arquiteturas e transformar ideias em produtos funcionais. Meu foco
+            hoje é evoluir como full-stack, aprofundando cada vez mais em
+            backend, testes, boas práticas e projetos que me desafiem a sair do
+            comum.
           </p>
-
-          <div className="mt-8 space-y-4">
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-10 h-10 bg-[#fdb003] rounded-lg flex items-center justify-center">
-                <FaCode className="text-white text-xl" />
-              </div>
-              <p className="text-gray-300 text-lg">
-                Desenvolvedor Web Full-stack sempre em busca de criar soluções
-                que facilitam a vida de outras pessoas
-              </p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
-                <FaGraduationCap className="text-white text-xl" />
-              </div>
-              <p className="text-gray-300 text-lg">
-                Graduando em Análise e Desenvolvimento de Sistemas, pela
-                Universidade Estácio de Sá
-              </p>
-            </div>
-          </div>
         </section>
-
+        <EducationSection />
+        <ProfessionalExperience />
         <SkillsSection />
       </main>
     </div>
