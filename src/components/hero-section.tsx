@@ -21,22 +21,25 @@ const HeroSection = ({
   ],
 }: HeroSectionProps) => {
   return (
-    <div className="relative bg-[#363638] overflow-hidden shadow-2xl min-h-screen h-screen w-screen">
+    <div className="relative bg-[#0a0a0a] shadow-2xl min-h-[calc(100vh-60px)] flex justify-center items-center w-full">
       <div className="absolute top-8 left-8 w-16 h-1 bg-[#fdb003]"></div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 p-8 lg:p-12 h-full">
-        <div className="flex-1 flex flex-col gap-6">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 p-8 lg:p-12 h-full">
+        <div className="flex-1 flex flex-col gap-6 max-w-2xl">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Opa, tudo bem?
             <br />
             Eu sou o <span className="text-[#fdb003]">Erackson Souza</span>
           </h1>
-
           <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
-            Desenvolvedor Web Full Stack focado em resultados e soluções reais.
-            Crio aplicações modernas que conectam negócios e pessoas, com foco em performance e experiência.
-            Tenho experiência prática com <strong>JavaScript, TypeScript, React, Next.js, Node.js, Tailwind CSS</strong> e
-            no backend com <strong>Express.js, APIs REST e integrações automáticas</strong>.
+            Desenvolvedor Full Stack focado em resultados e soluções reais.
+            Crio aplicações modernas que conectam negócios e pessoas, com foco
+            em performance e experiência. Tenho experiência prática com{" "}
+            <strong>
+              JavaScript, TypeScript, React, Next.js, Node.js, Tailwind CSS
+            </strong>{" "}
+            e no backend com{" "}
+            <strong>Express.js, APIs REST e integrações automáticas</strong>.
           </p>
 
           <div className="flex flex-wrap gap-4">

@@ -65,7 +65,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="subject" className="block text-sm font-medium mb-2">
-          Assunto 
+          Assunto
         </label>
         <input
           type="text"
@@ -76,7 +76,7 @@ export default function ContactForm() {
           maxLength={200}
           disabled={isPending}
           className="w-full px-4 py-3 bg-[#2a2a2c] border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-          placeholder="Sobre o que você quer falar "
+          placeholder="Sobre o que você quer falar"
         />
       </div>
 
