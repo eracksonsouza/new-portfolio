@@ -52,7 +52,6 @@ const SkillsSection = () => {
         Linguagens e Frameworks
       </h2>
 
-      {/* Tabs */}
       <div className="flex justify-center gap-4 mb-12">
         <button
           onClick={() => setActiveTab("frontend")}
@@ -76,7 +75,6 @@ const SkillsSection = () => {
         </button>
       </div>
 
-      {/* Skills Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center max-w-5xl mx-auto">
         {skillsData[activeTab].map((skill, index) => {
           const IconComponent = skill.icon;

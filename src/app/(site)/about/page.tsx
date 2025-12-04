@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#2a2a2c] via-[#363638] to-[#424244]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#0a0a0a] to-[#0a0a0a]">
       <main className="container mx-auto px-4 py-24 md:py-32 max-w-6xl">
         <section className="mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -77,7 +77,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Skills Section */}
         <SkillsSection />
       </main>
     </div>

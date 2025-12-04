@@ -88,17 +88,16 @@ export default function ProjectsCard() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
-  // Detectar tamanho da tela
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setItemsPerPage(1); // Mobile: 1 card
+        setItemsPerPage(1);
       } else if (window.innerWidth < 1024) {
-        setItemsPerPage(2); // Tablet: 2 cards
+        setItemsPerPage(2);
       } else {
-        setItemsPerPage(3); // Desktop: 3 cards
+        setItemsPerPage(3);
       }
-      setCurrentIndex(0); // Reset ao mudar tamanho
+      setCurrentIndex(0);
     };
 
     handleResize();
@@ -135,9 +134,7 @@ export default function ProjectsCard() {
           </p>
         </div>
 
-        {/* Carrossel */}
         <div className="relative mb-8 md:mb-12">
-          {/* Botão Anterior */}
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
@@ -151,7 +148,9 @@ export default function ProjectsCard() {
             <div
               className="flex gap-0 md:gap-6 transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)`,
+                transform: `translateX(-${
+                  currentIndex * (100 / itemsPerPage)
+                }%)`,
               }}
             >
               {Projetos.map((projeto) => (
@@ -227,7 +226,6 @@ export default function ProjectsCard() {
             </div>
           </div>
 
-          {/* Botão Próximo */}
           <button
             onClick={handleNext}
             disabled={currentIndex >= maxIndex}
@@ -238,28 +236,27 @@ export default function ProjectsCard() {
           </button>
         </div>
 
-        {/* Indicadores */}
         <div className="flex justify-center gap-2 mb-8 md:mb-12">
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all ${currentIndex === index
-                ? "bg-[#fdb003] w-6 md:w-8"
-                : "bg-white/30 hover:bg-white/50 w-2"
-                }`}
+              className={`h-2 rounded-full transition-all ${
+                currentIndex === index
+                  ? "bg-[#fdb003] w-6 md:w-8"
+                  : "bg-white/30 hover:bg-white/50 w-2"
+              }`}
               aria-label={`Ir para slide ${index + 1}`}
             />
           ))}
         </div>
 
-        {/* Botão CTA */}
         <div className="flex justify-center">
           <Link
             href="#contact"
             className="bg-[#fdb003] hover:bg-[#e5a003] text-black text-base md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-full transition-all font-semibold w-full md:w-auto text-center"
           >
-            Fazer orçamento com um especialista
+            Entre em contato comigo
           </Link>
         </div>
       </div>

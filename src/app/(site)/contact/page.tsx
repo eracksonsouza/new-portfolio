@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div className="bg-[#2a2a2c] min-h-screen text-white">
+    <div className="bg-[#0a0a0a] min-h-screen text-white">
       <main className="container mx-auto px-4 py-16 max-w-2xl mt-10">
         <div className="space-y-8">
           <div className="text-center space-y-4">
