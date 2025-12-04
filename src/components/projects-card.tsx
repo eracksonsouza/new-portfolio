@@ -118,10 +118,10 @@ export default function ProjectsCard() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-[#0a0a0a] py-12 md:py-20 px-4 md:px-6"
+      className="bg-[#0a0a0a] px-4 md:px-6 pt-24 pb-10 md:pt-28 md:pb-12 overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-left mb-12 md:mb-16 mt-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-left mb-10 md:mb-12">
           <h3 className="text-[#fdb003] text-xs md:text-sm font-semibold mb-3 md:mb-4 uppercase tracking-[2px]">
             Meus últimos projetos
           </h3>
@@ -134,7 +134,7 @@ export default function ProjectsCard() {
           </p>
         </div>
 
-        <div className="relative mb-8 md:mb-12">
+        <div className="relative mb-8 md:mb-10">
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
@@ -159,7 +159,7 @@ export default function ProjectsCard() {
                   className="flex-shrink-0 w-full px-2 md:px-0 md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
                   <div className="bg-[#111]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#fdb003]/30 hover:transform hover:translate-y-[-8px] hover:scale-[1.02] transition-all duration-300 h-full flex flex-col group">
-                    <div className="relative h-[280px] md:h-[350px] overflow-hidden">
+                    <div className="relative h-[220px] md:h-[260px] lg:h-[280px] overflow-hidden">
                       <Image
                         src={projeto.image}
                         alt={projeto.title}
@@ -195,10 +195,10 @@ export default function ProjectsCard() {
                           {projeto.title}
                         </h3>
                       </div>
-                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed line-clamp-4">
+                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed line-clamp-3">
                         {projeto.description}
                       </p>
-                      <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-4 rounded">
+                      <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-3.5 rounded">
                         <span className="text-lg md:text-xl flex-shrink-0">
                           💡
                         </span>
@@ -236,7 +236,7 @@ export default function ProjectsCard() {
           </button>
         </div>
 
-        <div className="flex justify-center gap-2 mb-8 md:mb-12">
+        <div className="flex justify-center gap-2 mb-6 md:mb-8">
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
               key={index}
