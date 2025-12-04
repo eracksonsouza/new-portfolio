@@ -21,7 +21,7 @@ const HeroSection = ({
   ],
 }: HeroSectionProps) => {
   return (
-    <div className="relative bg-[#0a0a0a] shadow-2xl min-h-[calc(100vh-60px)] flex justify-center items-center w-full">
+    <div className="relative bg-[#0a0a0a] shadow-2xl h-[90vh] flex justify-center items-center w-full">
       <div className="absolute top-8 left-8 w-16 h-1 bg-[#fdb003]"></div>
 
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 p-8 lg:p-12 h-full">

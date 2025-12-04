@@ -19,7 +19,7 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-white/10">
+    <header className="h-[10vh] flex items-center fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="relative h-12 w-auto">
