@@ -65,14 +65,14 @@ function Typewriter({
 
 export default function NewHome() {
   return (
-    <div className="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-[#0f1216]">
+    <div className="relative min-h-70vh overflow-hidden bg-[#0f1216]">
       {/* Foto como background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 mt-6">
         <Image
           src={fotoHero}
           alt="Foto de Erackson Souza"
           fill
-          sizes="100vw"
+          sizes="80vw"
           priority
           className="object-cover opacity-60 md:opacity-90 select-none pointer-events-none"
           style={{ objectPosition: `${FOCAL_X}% ${FOCAL_Y}%` }}
@@ -88,7 +88,7 @@ export default function NewHome() {
             Bem-vindo
           </p>
           <h1 className="mt-3 text-4xl md:text-6xl leading-tight font-extrabold text-white">
-            Eu sou Erackson Souza,
+            Eu sou Erackson Souzaa,
             <br className="hidden md:block" />
             <span className="block mt-2 md:mt-4 text-2xl md:text-4xl font-semibold">
               <Typewriter
@@ -107,7 +107,6 @@ export default function NewHome() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            {/* Espaço reservado para CTAs se desejar adicionar depois */}
           </div>
         </div>
       </section>
