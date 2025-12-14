@@ -19,9 +19,9 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-white/10">
+    <header className="h-[10vh] flex items-center fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-[10vh]">
+        <div className="flex items-center justify-between h-20">
           <Link href="/" className="relative h-12 w-auto">
             <Image
               src={logoES}
@@ -58,14 +58,14 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <nav className="md:hidden pb-4 bg-white">
+          <nav className="md:hidden pb-4">
             <ul className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-black hover:text-[#fdb003] hover:bg-gray-100 transition-all duration-300 font-medium py-3 px-4 rounded"
+                    className="block text-black hover:text-[#fdb003] hover:bg-white/5 transition-all duration-300 font-medium py-3 px-4 rounded"
                   >
                     {link.label}
                   </Link>

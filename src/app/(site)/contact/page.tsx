@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     url: "https://erackson-souza.vercel.app/contact",
     type: "website",
   },
+  twitter: {
+    card: "summary",
+    title: "Contato | Erackson Souza",
+    description:
+      "Entre em contato com Erackson Souza para discutir projetos e oportunidades.",
+  },
   alternates: {
     canonical: "https://erackson-souza.vercel.app/contact",
   },

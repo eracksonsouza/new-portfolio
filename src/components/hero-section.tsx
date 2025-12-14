@@ -21,10 +21,10 @@ const HeroSection = ({
   ],
 }: HeroSectionProps) => {
   return (
-    <div className="relative bg-[#0a0a0a] shadow-2xl h-auto lg:h-[90vh] flex justify-center items-center w-full py-12 sm:py-16">
+    <div className="relative bg-[#0a0a0a] shadow-2xl h-[90vh] flex justify-center items-center w-full">
       <div className="absolute top-8 left-8 w-16 h-1 bg-[#fdb003]"></div>
 
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 p-6 sm:p-8 lg:p-12">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 p-8 lg:p-12 h-full">
         <div className="flex-1 flex flex-col gap-6 max-w-2xl">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Opa, tudo bem?
@@ -55,11 +55,11 @@ const HeroSection = ({
           </div>
         </div>
 
-        <div className="relative flex-shrink-0 mt-6 lg:mt-0">
+        <div className="relative flex-shrink-0">
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#fdb003] to-[#e5a003] opacity-20 blur-xl"></div>
 
-            <div className="relative mb-10 w-full h-full rounded-full overflow-hidden border-4 border-[#fdb003]/30 shadow-2xl">
+            <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#fdb003]/30 shadow-2xl">
               <Image
                 src="/assets/eu.png"
                 alt="Erackson Souza"
