@@ -1,6 +1,5 @@
 import { Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import Image from "next/image";
-import fotoPerfil from "@/../public/assets/foto-perfil-card.png";
 
 interface ProfileCardProps {
   name?: string;
@@ -28,7 +27,7 @@ const ProfileCard = ({
     <div className="pt-12 pb-8 flex justify-center">
       <div className="relative w-52 h-52 rounded-full border-4 border-white shadow-lg overflow-hidden">
         <Image
-          src={fotoPerfil}
+          src="/assets/foto-perfil-card.png"
           alt={name}
           fill
           className="object-cover"

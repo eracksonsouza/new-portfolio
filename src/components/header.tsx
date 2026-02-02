@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logoES from "@/../public/assets/logo-es.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -24,8 +23,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-[10vh]">
           <Link href="/" className="relative h-12 w-auto">
             <Image
-              src={logoES}
+              src="/assets/logo-es.png"
               alt="Logo Erackson Souza"
+              width={160}
               height={48}
               className="h-12 w-auto object-contain"
               priority

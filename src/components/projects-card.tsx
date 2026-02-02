@@ -1,10 +1,4 @@
 "use client";
-
-import esStore from "@/../../public/assets/projetos/es-store.png";
-import financeControl from "@/../../public/assets/projetos/finance-control.png";
-import neiMarket from "@/../../public/assets/projetos/nei-analytcs.png";
-import lpPsic from "@/../../public/assets/projetos/lp-psic.png";
-import petDev from "@/../../public/assets/projetos/petdev.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Code, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
@@ -18,7 +12,7 @@ const Projetos = [
       "Plataforma de análise de mercado que centraliza dados em tempo real de criptomoedas, ações e fundos imobiliários. Desenvolvida com Vue.js, Tailwind CSS e um backend em Express.js, integra múltiplas APIs financeiras para exibir gráficos e informações atualizadas. O projeto inclui um chatbot inteligente (API Gemini) que responde dúvidas dos usuários, ajudando investidores a tomar decisões mais rápidas e seguras.",
     impact:
       "Tornar a análise de mercado acessível e em tempo real para investidores e entusiastas de finanças.",
-    image: neiMarket,
+    image: "/assets/projetos/nei-analytcs.png",
     link: "https://nei-market-analytics.com.br/",
     repository: "https://github.com/bush1D3v/NEI_market_analytics",
     site: "https://nei-market-analytics.com.br/",
@@ -31,7 +25,7 @@ const Projetos = [
       "E-commerce moderno construído com Next.js, TypeScript e Tailwind CSS, com interface responsiva e fluida. Oferece páginas de produto dinâmicas, carrinho interativo e um fluxo de compra otimizado para mobile. O projeto foi desenhado para melhorar a experiência de compra e conversão, aplicando boas práticas de UI/UX e performance.",
     impact:
       "Criar uma experiência de compra simples e direta, reduzindo fricção e aumentando engajamento.",
-    image: esStore,
+    image: "/assets/projetos/es-store.png",
     link: "https://es-store-beryl.vercel.app",
     repository: "https://github.com/eracksonsouza/es-store",
     site: "https://es-store.vercel.app/",
@@ -44,7 +38,7 @@ const Projetos = [
       "Aplicação web para gestão financeira pessoal, desenvolvida com React, TypeScript, Supabase e Tailwind CSS. Permite registrar receitas e despesas, categorizar transações e visualizar gráficos interativos que ajudam o usuário a entender e controlar seu orçamento. O sistema conta com autenticação segura e armazenamento persistente.",
     impact:
       "Ajudar pessoas a organizarem suas finanças e visualizarem seus hábitos de gasto de forma prática e intuitiva.",
-    image: financeControl,
+    image: "/assets/projetos/finance-control.png",
     link: "https://finance-control-psi.vercel.app/",
     repository: "https://github.com/eracksonsouza/finance-pocket",
     site: "https://finance-control-psi.vercel.app/",
@@ -63,7 +57,7 @@ const Projetos = [
       "Landing page feita em Next.js e Tailwind CSS para divulgação de serviços de psicologia. Foco total em clareza e credibilidade, apresentando informações sobre os atendimentos, depoimentos de pacientes e um formulário funcional de contato. O design transmite empatia e profissionalismo, conectando novos pacientes com a psicóloga de forma simples e humana.",
     impact:
       "Aumentar o alcance digital da profissional e facilitar o primeiro contato com novos pacientes.",
-    image: lpPsic,
+    image: "/assets/projetos/lp-psic.png",
     link: "https://lp-psic.vercel.app/",
     repository: "https://github.com/eracksonsouza/lp-psic",
     site: "https://lp-psic.vercel.app/",
@@ -76,7 +70,7 @@ const Projetos = [
       "Plataforma para agendamento e divulgação de serviços PetShop, desenvolvida em Next.js e TypeScript. Exibe serviços, horários disponíveis e um botão de contato direto via WhatsApp. O layout foi pensado para gerar confiança e conveniência, tanto pro dono do pet quanto pro prestador do serviço.",
     impact:
       "Simplificar o agendamento e a comunicação entre clientes e petshops, eliminando burocracia.",
-    image: petDev,
+    image: "/assets/projetos/petdev.png",
     link: "https://petdev.vercel.app/",
     repository: "https://github.com/eracksonsouza/petdev",
     site: "https://petdev.vercel.app/",
