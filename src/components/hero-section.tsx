@@ -9,6 +9,8 @@ interface HeroSectionProps {
   buttons?: {
     label: string;
     href: string;
+    target?: "_blank" | "_self";
+    rel?: string;
   }[];
 }
 
@@ -16,12 +18,17 @@ const HeroSection = ({
   title = "Olá, tudo bem?",
   subtitle = "Seja bem-vindo ao meu portfólio!",
   buttons = [
-    { label: "CURRÍCULO", href: "/curriculum" },
+    {
+      label: "CURRÍCULO",
+      href: "https://drive.google.com/drive/folders/1YNRAWRyM1sVKaJ7ALk8j1Rvj65qptrSJ?usp=sharing",
+      target: "_blank",
+      rel: "noreferrer",
+    },
     { label: "PROJETOS", href: "/projects" },
   ],
 }: HeroSectionProps) => {
   return (
-    <div className="relative bg-[#0a0a0a] shadow-2xl h-auto lg:h-[90vh] flex justify-center items-center w-full py-12 sm:py-16">
+    <div className="relative bg-[#0a0a0a] shadow-2xl h-full flex justify-center items-center w-full py-8">
       <div className="absolute top-8 left-8 w-16 h-1 bg-[#fdb003]"></div>
 
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center gap-10 p-6 sm:p-8 lg:p-12">
@@ -49,15 +56,17 @@ const HeroSection = ({
                 asChild
                 className="bg-[#fdb003] hover:bg-[#e5a003] text-white font-semibold rounded-full px-8 py-6 text-sm tracking-wider transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <Link href={button.href}>{button.label}</Link>
+                <Link href={button.href} target={button.target} rel={button.rel}>
+                  {button.label}
+                </Link>
               </Button>
             ))}
           </div>
         </div>
 
-        <div className="relative flex-shrink-0 mt-6 lg:mt-0">
+        <div className="relative shrink-0 mt-6 lg:mt-0">
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#fdb003] to-[#e5a003] opacity-20 blur-xl"></div>
+            <div className="absolute inset-0 rounded-full bg-linear-to-br from-[#fdb003] to-[#e5a003] opacity-20 blur-xl"></div>
 
             <div className="relative mb-10 w-full h-full rounded-full overflow-hidden border-4 border-[#fdb003]/30 shadow-2xl">
               <Image

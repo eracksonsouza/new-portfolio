@@ -118,7 +118,7 @@ export default function ProjectsCard() {
   return (
     <section
       id="projects"
-      className="bg-[#0a0a0a] px-4 md:px-6 pt-24 pb-10 md:pt-28 md:pb-12 overflow-hidden"
+      className="bg-[#0a0a0a] h-full px-4 md:px-6 py-6 md:py-8 overflow-y-auto"
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-left mb-10 md:mb-12">
@@ -156,9 +156,9 @@ export default function ProjectsCard() {
               {Projetos.map((projeto) => (
                 <div
                   key={projeto.id}
-                  className="flex-shrink-0 w-full px-2 md:px-0 md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                  className="shrink-0 w-full px-2 md:px-0 md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
-                  <div className="bg-[#111]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#fdb003]/30 hover:transform hover:translate-y-[-8px] hover:scale-[1.02] transition-all duration-300 h-full flex flex-col group">
+                  <div className="bg-[#111]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#fdb003]/30 hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 h-full flex flex-col group">
                     <div className="relative h-[220px] md:h-[260px] lg:h-[280px] overflow-hidden">
                       <Image
                         src={projeto.image}
@@ -166,7 +166,7 @@ export default function ProjectsCard() {
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
                       <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 md:gap-4">
                         <Link
@@ -199,7 +199,7 @@ export default function ProjectsCard() {
                         {projeto.description}
                       </p>
                       <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-3.5 rounded">
-                        <span className="text-lg md:text-xl flex-shrink-0">
+                        <span className="text-lg md:text-xl shrink-0">
                           💡
                         </span>
                         <p className="text-gray-200 text-xs md:text-sm leading-relaxed">

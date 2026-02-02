@@ -24,7 +24,7 @@ const ProfileCard = ({
     instagram: "https://www.instagram.com/eracksonsouza/",
   },
 }: ProfileCardProps) => (
-  <div className="w-full max-w-md mx-auto bg-gradient-to-b from-[#fdb003] to-[#f59e0b] lg:rounded-lg rounded-t-lg shadow-2xl overflow-hidden">
+  <div className="w-full max-w-md mx-auto bg-linear-to-b from-[#fdb003] to-[#f59e0b] lg:rounded-lg rounded-t-lg shadow-2xl overflow-hidden">
     <div className="pt-12 pb-8 flex justify-center">
       <div className="relative w-52 h-52 rounded-full border-4 border-white shadow-lg overflow-hidden">
         <Image
