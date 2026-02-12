@@ -6,10 +6,10 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "Sobre" },
-  { href: "/projects", label: "Projetos" },
-  { href: "/contact", label: "Contato" },
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "Sobre" },
+  { href: "/#projects", label: "Projetos" },
+  { href: "/#contact", label: "Contato" },
 ];
 
 const Header = () => {

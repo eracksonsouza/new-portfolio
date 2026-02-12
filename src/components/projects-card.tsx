@@ -112,7 +112,7 @@ export default function ProjectsCard() {
   return (
     <section
       id="projects"
-      className="bg-[#0a0a0a] h-full px-4 md:px-6 py-6 md:py-8 overflow-y-auto"
+      className="bg-[var(--es-bg-main)] px-4 py-16 md:px-6 md:py-24"
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-left mb-10 md:mb-12">
@@ -122,7 +122,7 @@ export default function ProjectsCard() {
           <h2 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
             Faço projetos que facilitam a vida das pessoas
           </h2>
-          <p className="text-gray-400 text-sm md:text-base max-w-3xl leading-relaxed">
+          <p className="max-w-3xl text-sm leading-relaxed text-[var(--es-text-muted)] md:text-base">
             Cada projeto é pensado para resolver problemas reais e gerar impacto
             positivo na vida dos usuários.
           </p>
@@ -132,7 +132,7 @@ export default function ProjectsCard() {
           <button
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed rounded-full p-2 md:p-3 transition-all"
+            className="absolute left-0 top-1/2 z-10 -translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] disabled:cursor-not-allowed disabled:opacity-30 md:-translate-x-4 md:p-3"
             aria-label="Anterior"
           >
             <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white" />
@@ -152,7 +152,7 @@ export default function ProjectsCard() {
                   key={projeto.id}
                   className="shrink-0 w-full px-2 md:px-0 md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
-                  <div className="bg-[#111]/50 border border-white/10 rounded-2xl overflow-hidden hover:border-[#fdb003]/30 hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 h-full flex flex-col group">
+                  <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/12 bg-[var(--es-surface)]/90 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#fdb003]/30">
                     <div className="relative h-[220px] md:h-[260px] lg:h-[280px] overflow-hidden">
                       <Image
                         src={projeto.image}
@@ -189,7 +189,7 @@ export default function ProjectsCard() {
                           {projeto.title}
                         </h3>
                       </div>
-                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed line-clamp-3">
+                      <p className="line-clamp-3 text-xs leading-relaxed text-gray-300 md:text-sm">
                         {projeto.description}
                       </p>
                       <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-3.5 rounded">
@@ -207,7 +207,7 @@ export default function ProjectsCard() {
                         {projeto.technologies.map((tech, index) => (
                           <span
                             key={index}
-                            className="px-2.5 md:px-3 py-1 md:py-1.5 bg-white/5 border border-white/10 hover:border-[#fdb003] hover:bg-[#fdb003]/10 hover:text-[#fdb003] rounded-md text-gray-400 text-[10px] md:text-xs font-medium transition-all"
+                            className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-medium text-gray-400 transition-all hover:border-[#fdb003] hover:bg-[#fdb003]/10 hover:text-[#fdb003] md:px-3 md:py-1.5 md:text-xs"
                           >
                             {tech}
                           </span>
@@ -223,7 +223,7 @@ export default function ProjectsCard() {
           <button
             onClick={handleNext}
             disabled={currentIndex >= maxIndex}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed rounded-full p-2 md:p-3 transition-all"
+            className="absolute right-0 top-1/2 z-10 translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] disabled:cursor-not-allowed disabled:opacity-30 md:translate-x-4 md:p-3"
             aria-label="Próximo"
           >
             <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white" />

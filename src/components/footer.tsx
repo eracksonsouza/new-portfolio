@@ -11,7 +11,7 @@ const socialLinks = {
 
 const Footer = () => {
   return (
-    <footer className="h-[10vh] flex items-center bg-[#363638] border-t border-white/10">
+    <footer className="flex h-[10vh] items-center border-t border-white/10 bg-[var(--es-surface)]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-white text-sm md:text-base">

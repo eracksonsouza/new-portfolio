@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 const ContactPage = () => {
   return (
-    <div className="bg-[#0a0a0a] h-full text-white overflow-y-auto">
+    <div className="h-full overflow-y-auto bg-[var(--es-bg-soft)] text-white">
       <main className="container mx-auto px-4 py-8 md:py-12 max-w-2xl">
         <div className="space-y-6 md:space-y-8">
           <div className="text-center space-y-3 md:space-y-4">

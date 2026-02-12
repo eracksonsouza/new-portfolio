@@ -75,8 +75,8 @@ const SkillsSection = () => {
           onClick={() => setActiveTab("frontend")}
           className={`px-6 md:px-8 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ${
             activeTab === "frontend"
-              ? "bg-[#fdb003] text-white shadow-lg"
-              : "bg-white text-gray-900 hover:bg-gray-100"
+              ? "bg-[#fdb003] text-black shadow-lg"
+              : "border border-white/12 bg-[var(--es-surface)] text-gray-100 hover:bg-[var(--es-surface-2)]"
           }`}
         >
           <p className="cursor-pointer">&lt; Front-end /&gt;</p>
@@ -85,8 +85,8 @@ const SkillsSection = () => {
           onClick={() => setActiveTab("backend")}
           className={`px-6 md:px-8 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ${
             activeTab === "backend"
-              ? "bg-[#fdb003] text-white shadow-lg"
-              : "bg-white text-gray-900 hover:bg-gray-100"
+              ? "bg-[#fdb003] text-black shadow-lg"
+              : "border border-white/12 bg-[var(--es-surface)] text-gray-100 hover:bg-[var(--es-surface-2)]"
           }`}
         >
           <p className="cursor-pointer">&lt; Back-end /&gt;</p>
@@ -95,8 +95,8 @@ const SkillsSection = () => {
           onClick={() => setActiveTab("tools")}
           className={`px-6 md:px-8 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ${
             activeTab === "tools"
-              ? "bg-[#fdb003] text-white shadow-lg"
-              : "bg-white text-gray-900 hover:bg-gray-100"
+              ? "bg-[#fdb003] text-black shadow-lg"
+              : "border border-white/12 bg-[var(--es-surface)] text-gray-100 hover:bg-[var(--es-surface-2)]"
           }`}
         >
           <p className="cursor-pointer">&lt; Ferramentas /&gt;</p>
@@ -109,7 +109,7 @@ const SkillsSection = () => {
           return (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-[#fdb003]/30 cursor-pointer min-h-[140px] w-full max-w-[160px]"
+              className="flex min-h-[140px] w-full max-w-[160px] cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border border-white/12 bg-[var(--es-surface)] p-6 transition-all duration-300 hover:scale-105 hover:border-[#fdb003]/35 hover:shadow-2xl hover:shadow-[#fdb003]/15"
               style={{
                 animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`,
               }}
@@ -118,7 +118,7 @@ const SkillsSection = () => {
                 className="text-5xl transition-colors duration-300"
                 style={{ color: skill.color }}
               />
-              <span className="font-semibold text-gray-900 text-center text-sm">
+              <span className="text-center text-sm font-semibold text-gray-100">
                 {skill.name}
               </span>
             </div>
