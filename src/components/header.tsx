@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
   { href: "/#home", label: "Home" },
@@ -18,8 +18,8 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-white/10">
-      <div className="container mx-auto px-4">
+    <header className="sticky top-0 left-0 right-0 z-50 border-b border-black/5 bg-white/85 backdrop-blur-md">
+      <div className="relative container mx-auto px-4">
         <div className="flex items-center justify-between h-[10vh]">
           <Link href="/" className="relative h-12 w-auto">
             <Image
@@ -53,27 +53,31 @@ const Header = () => {
             className="md:hidden text-black hover:text-[#fdb003] transition-colors p-2"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
           </button>
         </div>
 
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4 bg-white">
-            <ul className="flex flex-col gap-2">
+        <nav
+          className={`md:hidden absolute right-4 top-[calc(10vh-0.25rem)] w-48 rounded-xl border border-black/10 bg-white backdrop-blur-lg shadow-lg transition-all duration-200 ${
+            isMenuOpen
+              ? "pointer-events-auto translate-y-0 opacity-100"
+              : "pointer-events-none -translate-y-1 opacity-0"
+          }`}
+        >
+          <ul className="flex flex-col p-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-black hover:text-[#fdb003] hover:bg-gray-100 transition-all duration-300 font-medium py-3 px-4 rounded"
+                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-black transition-all duration-200 hover:bg-black/5 hover:text-[#fdb003]"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
-            </ul>
-          </nav>
-        )}
+          </ul>
+        </nav>
       </div>
     </header>
   );

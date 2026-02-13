@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { ReactNode } from "react";
 
 interface CarouselProps {
@@ -45,7 +45,7 @@ export function Carousel({
             : "rgba(255,255,255,0.1)",
         }}
       >
-        <ChevronLeft
+        <FiChevronLeft
           className="w-4 h-4 md:w-6 md:h-6"
           style={{ color: canGoPrev ? buttonColor : "#ffffff" }}
         />
@@ -75,7 +75,7 @@ export function Carousel({
             : "rgba(255,255,255,0.1)",
         }}
       >
-        <ChevronRight
+        <FiChevronRight
           className="w-4 h-4 md:w-6 md:h-6"
           style={{ color: canGoNext ? buttonColor : "#ffffff" }}
         />

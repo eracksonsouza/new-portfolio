@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Download, Github, Linkedin, MessageCircle } from "lucide-react";
+import { FiDownload } from "react-icons/fi";
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import euDigital from "../../public/assets/eu-digital-amarelo.png";
 
 interface HeroSectionProps {
@@ -48,7 +49,7 @@ const HeroSection = ({
               aria-label="LinkedIn"
               className="rounded-full border border-[#fdb003]/30 bg-white/10 p-2.5 text-gray-100 transition-colors hover:border-[#fdb003] hover:text-[#fdb003]"
             >
-              <Linkedin size={20} />
+              <FaLinkedinIn size={20} />
             </Link>
             <Link
               href={socialLinks.github}
@@ -57,7 +58,7 @@ const HeroSection = ({
               aria-label="GitHub"
               className="rounded-full border border-[#fdb003]/30 bg-white/10 p-2.5 text-gray-100 transition-colors hover:border-[#fdb003] hover:text-[#fdb003]"
             >
-              <Github size={20} />
+              <FaGithub size={20} />
             </Link>
           </div>
         </div>
@@ -76,7 +77,7 @@ const HeroSection = ({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-base text-[#fdb003] transition-colors hover:text-[#ffd166]"
           >
-            Baixar CV <Download size={16} />
+            Baixar CV <FiDownload size={16} />
           </Link>
 
           <Link
@@ -85,7 +86,7 @@ const HeroSection = ({
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-[#fdb003]/40 bg-transparent px-6 py-2.5 text-base text-[#fdb003] transition-all hover:border-[#fdb003] hover:text-[#ffd166]"
           >
-            <MessageCircle size={18} />
+            <FaWhatsapp size={18} />
             Vamos conversar
           </Link>
         </div>

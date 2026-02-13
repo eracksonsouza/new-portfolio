@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { FiChevronLeft, FiChevronRight, FiExternalLink } from "react-icons/fi";
 import { useState, useEffect } from "react";
 
 const Projetos = [
@@ -136,7 +136,7 @@ export default function ProjectsCard() {
             className="absolute left-0 top-1/2 z-10 -translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)] disabled:cursor-not-allowed disabled:opacity-30 md:-translate-x-4 md:p-3"
             aria-label="Anterior"
           >
-            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white cursor-pointer" />
+            <FiChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white cursor-pointer" />
           </button>
 
           <div className="overflow-hidden px-2 md:px-0">
@@ -216,7 +216,7 @@ export default function ProjectsCard() {
                           aria-label={`Ver deploy do projeto ${projeto.title}`}
                         >
                           Ver projeto
-                          <ExternalLink size={14} />
+                          <FiExternalLink size={14} />
                         </Link>
                       </div>
                     </div>
@@ -233,7 +233,7 @@ export default function ProjectsCard() {
             className="absolute right-0 top-1/2 z-10 translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)] disabled:cursor-not-allowed disabled:opacity-30 md:translate-x-4 md:p-3"
             aria-label="Próximo"
           >
-            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white cursor-pointer" />
+            <FiChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white cursor-pointer" />
           </button>
         </div>
 

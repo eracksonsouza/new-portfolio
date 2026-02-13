@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Github, MessageCircle } from "lucide-react";
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 
 const socialLinks = {
   linkedin: "https://www.linkedin.com/in/eracksonsouza/",
@@ -26,7 +26,7 @@ const Footer = () => {
               className="text-white hover:text-[#0A66C2] transition-colors duration-300"
               aria-label="LinkedIn"
             >
-              <Linkedin size={24} />
+              <FaLinkedinIn size={24} />
             </a>
 
             <a
@@ -36,7 +36,7 @@ const Footer = () => {
               className="text-white hover:text-[#fdb003] transition-colors duration-300"
               aria-label="GitHub"
             >
-              <Github size={24} />
+              <FaGithub size={24} />
             </a>
 
             <a
@@ -46,7 +46,7 @@ const Footer = () => {
               className="text-white hover:text-[#25D366] transition-colors duration-300"
               aria-label="WhatsApp"
             >
-              <MessageCircle size={24} />
+              <FaWhatsapp size={24} />
             </a>
           </div>
         </div>

@@ -1,4 +1,9 @@
-import { Github, Linkedin, Instagram, MessageCircle } from "lucide-react";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaWhatsapp,
+} from "react-icons/fa6";
 import Image from "next/image";
 
 interface ProfileCardProps {
@@ -56,7 +61,7 @@ const ProfileCard = ({
             className="text-gray-800 hover:text-[#0A66C2] transition-colors duration-300"
             aria-label="LinkedIn"
           >
-            <Linkedin size={32} />
+            <FaLinkedinIn size={32} />
           </a>
         )}
 
@@ -68,7 +73,7 @@ const ProfileCard = ({
             className="text-gray-800 hover:text-[#181717] transition-colors duration-300"
             aria-label="GitHub"
           >
-            <Github size={32} />
+            <FaGithub size={32} />
           </a>
         )}
 
@@ -80,7 +85,7 @@ const ProfileCard = ({
             className="text-gray-800 hover:text-[#25D366] transition-colors duration-300"
             aria-label="WhatsApp"
           >
-            <MessageCircle size={32} />
+            <FaWhatsapp size={32} />
           </a>
         )}
 
@@ -92,7 +97,7 @@ const ProfileCard = ({
             className="text-gray-800 hover:text-[#E4405F] transition-colors duration-300"
             aria-label="Instagram"
           >
-            <Instagram size={32} />
+            <FaInstagram size={32} />
           </a>
         )}
       </div>
