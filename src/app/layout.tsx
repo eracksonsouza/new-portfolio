@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./style/globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const inter = localFont({
+  src: [
+    {
+      path: "./fonts/Inter/Inter-VariableFont_opsz,wght.ttf",
+      style: "normal",
+      weight: "100 900",
+    },
+    {
+      path: "./fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf",
+      style: "italic",
+      weight: "100 900",
+    },
+  ],
   variable: "--font-inter",
   display: "swap",
 });
