@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Code, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Projetos = [
@@ -130,12 +130,13 @@ export default function ProjectsCard() {
 
         <div className="relative mb-8 md:mb-10">
           <button
+            type="button"
             onClick={handlePrev}
             disabled={currentIndex === 0}
-            className="absolute left-0 top-1/2 z-10 -translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] disabled:cursor-not-allowed disabled:opacity-30 md:-translate-x-4 md:p-3"
+            className="absolute left-0 top-1/2 z-10 -translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)] disabled:cursor-not-allowed disabled:opacity-30 md:-translate-x-4 md:p-3"
             aria-label="Anterior"
           >
-            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white" />
+            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white cursor-pointer" />
           </button>
 
           <div className="overflow-hidden px-2 md:px-0">
@@ -162,26 +163,6 @@ export default function ProjectsCard() {
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
-                      <div className="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 md:gap-4">
-                        <Link
-                          href={projeto.site}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 bg-[#fdb003]/10 hover:bg-[#fdb003] hover:text-black border border-[#fdb003] text-[#fdb003] px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm transition-all hover:-translate-y-1"
-                        >
-                          <ExternalLink size={16} />
-                          <span>Ver site</span>
-                        </Link>
-                        <Link
-                          href={projeto.repository}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 bg-[#fdb003]/10 hover:bg-[#fdb003] hover:text-black border border-[#fdb003] text-[#fdb003] px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold text-xs md:text-sm transition-all hover:-translate-y-1"
-                        >
-                          <Code size={16} />
-                          <span>Código</span>
-                        </Link>
-                      </div>
                     </div>
                     <div className="p-5 md:p-6 flex flex-col gap-3 md:gap-4 flex-1">
                       <div className="flex items-center gap-3">
@@ -193,9 +174,13 @@ export default function ProjectsCard() {
                         {projeto.description}
                       </p>
                       <div className="flex gap-2 md:gap-3 bg-[#fdb003]/5 border-l-3 border-l-[#fdb003] p-3 md:p-3.5 rounded">
-                        <span className="text-lg md:text-xl shrink-0">
-                          💡
-                        </span>
+                        <Image
+                          src="/favicons/light-icon.png"
+                          alt="Lâmpada"
+                          width={20}
+                          height={20}
+                          className="h-5 w-5 shrink-0 md:h-6 md:w-6"
+                        />
                         <p className="text-gray-200 text-xs md:text-sm leading-relaxed">
                           <strong className="text-[#fdb003] font-semibold">
                             Impacto:
@@ -203,7 +188,7 @@ export default function ProjectsCard() {
                           {projeto.impact}
                         </p>
                       </div>
-                      <div className="flex flex-wrap gap-2 mt-auto pt-3 md:pt-4">
+                      <div className="flex flex-wrap gap-2 pt-1 md:pt-2">
                         {projeto.technologies.map((tech, index) => (
                           <span
                             key={index}
@@ -213,6 +198,27 @@ export default function ProjectsCard() {
                           </span>
                         ))}
                       </div>
+                      <div className="mt-auto flex items-center gap-3 pt-3 md:pt-4">
+                        <Link
+                          href={projeto.repository}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-10 items-center justify-center rounded-sm bg-[#fdb003] px-3.5 py-2 text-xs font-semibold text-black transition-all hover:bg-[#e5a003] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)] md:px-4 md:text-sm"
+                          aria-label={`Ver repositório no Github do projeto ${projeto.title}`}
+                        >
+                          Ver Github
+                        </Link>
+                        <Link
+                          href={projeto.site}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-10 items-center gap-1.5 border-b border-white/50 pb-0.5 text-xs font-medium text-white transition-all hover:border-[#fdb003] hover:text-[#fdb003] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)] md:text-sm"
+                          aria-label={`Ver deploy do projeto ${projeto.title}`}
+                        >
+                          Ver projeto
+                          <ExternalLink size={14} />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -221,34 +227,42 @@ export default function ProjectsCard() {
           </div>
 
           <button
+            type="button"
             onClick={handleNext}
             disabled={currentIndex >= maxIndex}
-            className="absolute right-0 top-1/2 z-10 translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] disabled:cursor-not-allowed disabled:opacity-30 md:translate-x-4 md:p-3"
+            className="absolute right-0 top-1/2 z-10 translate-x-2 -translate-y-1/2 rounded-full bg-[var(--es-surface-2)]/85 p-2 transition-all hover:bg-[var(--es-surface-2)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)] disabled:cursor-not-allowed disabled:opacity-30 md:translate-x-4 md:p-3"
             aria-label="Próximo"
           >
-            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white" />
+            <ChevronRight className="w-4 h-4 md:w-6 md:h-6 text-white cursor-pointer" />
           </button>
         </div>
 
         <div className="flex justify-center gap-2 mb-6 md:mb-8">
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
+              type="button"
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all ${
-                currentIndex === index
-                  ? "bg-[#fdb003] w-6 md:w-8"
-                  : "bg-white/30 hover:bg-white/50 w-2"
-              }`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)]"
               aria-label={`Ir para slide ${index + 1}`}
-            />
+              aria-current={currentIndex === index ? "true" : undefined}
+            >
+              <span
+                aria-hidden="true"
+                className={`h-2 rounded-full transition-all ${
+                  currentIndex === index
+                    ? "bg-[#fdb003] w-6 md:w-8"
+                    : "bg-white/30 hover:bg-white/50 w-2"
+                }`}
+              />
+            </button>
           ))}
         </div>
 
         <div className="flex justify-center">
           <Link
             href="#contact"
-            className="bg-[#fdb003] hover:bg-[#e5a003] text-black text-base md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-full transition-all font-semibold w-full md:w-auto text-center"
+            className="bg-[#fdb003] hover:bg-[#e5a003] text-black text-base md:text-lg px-8 md:px-12 py-3 md:py-4 rounded-full transition-all font-semibold w-full md:w-auto text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fdb003] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--es-bg-main)]"
           >
             Entre em contato comigo
           </Link>
