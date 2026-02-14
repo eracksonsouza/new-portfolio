@@ -32,6 +32,8 @@ const Home = () => {
                   alt="Foto de Erackson Souza"
                   fill
                   className="object-cover"
+                  priority
+                  unoptimized
                   quality={100}
                   sizes="(max-width: 768px) 256px, 320px"
                 />
@@ -85,10 +87,10 @@ const Home = () => {
                   Prefere falar por e-mail?
                 </p>
                 <Link
-                  href="mailto:erackson05@gmail.com"
+                  href="mailto:souza.erackson@gmail.com"
                   className="inline-block text-lg font-semibold text-[#fdb003] transition-colors hover:text-[#ffd166]"
                 >
-                  erackson05@gmail.com
+                  souza.erackson@gmail.com
                 </Link>
               </div>
 

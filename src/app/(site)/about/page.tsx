@@ -51,6 +51,9 @@ const AboutPage = () => {
                   fill
                   className="object-cover"
                   priority
+                  unoptimized
+                  quality={100}
+                  sizes="(max-width: 768px) 256px, 320px"
                 />
               </div>
             </div>
