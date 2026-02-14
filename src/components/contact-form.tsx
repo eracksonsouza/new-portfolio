@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { submitContactForm } from "@/app/actions/contact";
+import { cn } from "@/lib/utils";
 
 type FormState = {
   success?: boolean;
@@ -9,9 +10,18 @@ type FormState = {
   message?: string;
 };
 
-export default function ContactForm() {
+type ContactFormProps = {
+  variant?: "default" | "split";
+  className?: string;
+};
+
+export default function ContactForm({
+  variant = "default",
+  className,
+}: ContactFormProps) {
   const [isPending, startTransition] = useTransition();
   const [formState, setFormState] = useState<FormState>({});
+  const isSplitVariant = variant === "split";
 
   async function handleSubmit(formData: FormData) {
     startTransition(async () => {
@@ -29,7 +39,13 @@ export default function ContactForm() {
     <form
       id="contact-form"
       action={handleSubmit}
-      className="space-y-6 rounded-lg border border-white/10 bg-[var(--es-surface)] p-8 shadow-xl"
+      className={cn(
+        "space-y-6",
+        isSplitVariant
+          ? "rounded-none border-none bg-transparent p-0 shadow-none"
+          : "rounded-lg border border-white/10 bg-[var(--es-surface)] p-8 shadow-xl",
+        className
+      )}
     >
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -43,7 +59,12 @@ export default function ContactForm() {
           minLength={2}
           maxLength={100}
           disabled={isPending}
-          className="w-full rounded-lg border border-white/12 bg-[var(--es-surface-2)] px-4 py-3 outline-none transition-all focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className={cn(
+            "w-full px-4 py-3 outline-none transition-all disabled:cursor-not-allowed disabled:opacity-50",
+            isSplitVariant
+              ? "rounded-md border border-white/20 bg-[var(--es-surface-2)]/50 focus:border-[#fdb003]/70 focus:ring-2 focus:ring-[#fdb003]/20"
+              : "rounded-lg border border-white/12 bg-[var(--es-surface-2)] focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30"
+          )}
           placeholder="Seu nome"
         />
       </div>
@@ -58,7 +79,12 @@ export default function ContactForm() {
           name="email"
           required
           disabled={isPending}
-          className="w-full rounded-lg border border-white/12 bg-[var(--es-surface-2)] px-4 py-3 outline-none transition-all focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className={cn(
+            "w-full px-4 py-3 outline-none transition-all disabled:cursor-not-allowed disabled:opacity-50",
+            isSplitVariant
+              ? "rounded-md border border-white/20 bg-[var(--es-surface-2)]/50 focus:border-[#fdb003]/70 focus:ring-2 focus:ring-[#fdb003]/20"
+              : "rounded-lg border border-white/12 bg-[var(--es-surface-2)] focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30"
+          )}
           placeholder="seu.email@exemplo.com"
         />
       </div>
@@ -75,7 +101,12 @@ export default function ContactForm() {
           minLength={5}
           maxLength={200}
           disabled={isPending}
-          className="w-full rounded-lg border border-white/12 bg-[var(--es-surface-2)] px-4 py-3 outline-none transition-all focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className={cn(
+            "w-full px-4 py-3 outline-none transition-all disabled:cursor-not-allowed disabled:opacity-50",
+            isSplitVariant
+              ? "rounded-md border border-white/20 bg-[var(--es-surface-2)]/50 focus:border-[#fdb003]/70 focus:ring-2 focus:ring-[#fdb003]/20"
+              : "rounded-lg border border-white/12 bg-[var(--es-surface-2)] focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30"
+          )}
           placeholder="Sobre o que você quer falar"
         />
       </div>
@@ -92,7 +123,12 @@ export default function ContactForm() {
           maxLength={1000}
           rows={6}
           disabled={isPending}
-          className="w-full resize-none rounded-lg border border-white/12 bg-[var(--es-surface-2)] px-4 py-3 outline-none transition-all focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30 disabled:cursor-not-allowed disabled:opacity-50"
+          className={cn(
+            "w-full resize-none px-4 py-3 outline-none transition-all disabled:cursor-not-allowed disabled:opacity-50",
+            isSplitVariant
+              ? "rounded-md border border-white/20 bg-[var(--es-surface-2)]/50 focus:border-[#fdb003]/70 focus:ring-2 focus:ring-[#fdb003]/20"
+              : "rounded-lg border border-white/12 bg-[var(--es-surface-2)] focus:border-[#fdb003]/60 focus:ring-2 focus:ring-[#fdb003]/30"
+          )}
           placeholder="Sua mensagem"
         />
       </div>
@@ -100,7 +136,12 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#fdb003] px-6 py-3 font-semibold text-black transition-colors hover:bg-[#e5a003] disabled:cursor-not-allowed disabled:opacity-50"
+        className={cn(
+          "flex w-full items-center justify-center gap-2 px-6 py-3 font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+          isSplitVariant
+            ? "rounded-md bg-[#fdb003] text-black uppercase tracking-[0.18em] hover:bg-[#e3a003]"
+            : "rounded-lg bg-[#fdb003] text-black hover:bg-[#e5a003]"
+        )}
       >
         {isPending ? (
           <>
@@ -127,7 +168,7 @@ export default function ContactForm() {
             Enviando...
           </>
         ) : (
-          "Enviar Mensagem"
+          isSplitVariant ? "Enviar" : "Enviar Mensagem"
         )}
       </button>
 
