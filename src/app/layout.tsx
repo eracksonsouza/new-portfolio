@@ -9,11 +9,6 @@ const inter = localFont({
       style: "normal",
       weight: "100 900",
     },
-    {
-      path: "./fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf",
-      style: "italic",
-      weight: "100 900",
-    },
   ],
   variable: "--font-inter",
   display: "swap",
