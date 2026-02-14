@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -45,6 +44,7 @@
 
 :root {
   --radius: 0.625rem;
+  --header-height: 4.5rem;
   --es-bg-main: #0b1016;
   --es-bg-soft: #0d141d;
   --es-surface: #101722;
@@ -121,6 +121,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 0.75rem);
   }
   * {
     @apply border-border outline-ring/50;
@@ -128,5 +129,60 @@
   body {
     background-color: var(--es-bg-main);
     color: #f8fafc;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 5rem;
+  }
+}
+
+@layer components {
+  .scroll-mouse-icon {
+    width: 26px;
+    height: 42px;
+    border: 2px solid rgba(253, 176, 3, 0.6);
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+    transition: border-color 180ms ease;
+  }
+
+  .scroll-mouse-wheel {
+    width: 4px;
+    height: 8px;
+    border-radius: 999px;
+    background: #fdb003;
+    animation: scroll-wheel 1.8s ease-in-out infinite;
+  }
+
+  .group:hover .scroll-mouse-icon {
+    border-color: rgba(253, 176, 3, 1);
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(12px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-mouse-wheel {
+    animation: none;
   }
 }
