@@ -32,7 +32,7 @@ const Home = () => {
                   alt="Foto de Erackson Souza"
                   fill
                   className="object-cover"
-                  quality={80}
+                  quality={100}
                   sizes="(max-width: 768px) 256px, 320px"
                 />
               </div>

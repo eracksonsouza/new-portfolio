@@ -20,7 +20,7 @@ const Header = () => (
             height={48}
             className="h-12 w-auto object-contain"
             sizes="160px"
-            quality={85}
+            quality={100}
           />
         </Link>
 
