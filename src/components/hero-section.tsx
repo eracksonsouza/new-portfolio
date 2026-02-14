@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FiDownload } from "react-icons/fi";
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import euDigital from "../../public/assets/eu-digital-amarelo.png";
+import AnimatedScrollIndicator from "@/components/animated-scroll-indicator";
 
 interface HeroSectionProps {
   cvUrl?: string;
@@ -23,11 +24,11 @@ const HeroSection = ({
   },
 }: HeroSectionProps) => {
   return (
-    <section className="relative isolate flex w-full items-center justify-center overflow-hidden bg-[var(--es-bg-main)] py-8 shadow-2xl lg:py-12">
+    <section className="relative isolate flex min-h-[calc(100dvh-var(--header-height))] w-full items-center justify-center overflow-hidden bg-[var(--es-bg-main)] pb-24 pt-8 shadow-2xl lg:py-12">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(253,176,3,0.18),transparent_45%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,18,0.76),rgba(8,12,20,0.95))]" />
 
-      <div className="relative container mx-auto grid items-center gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-10 lg:px-12">
+      <div className="relative container mx-auto grid w-full max-w-7xl items-center gap-8 px-5 sm:px-8 lg:grid-cols-[1fr_auto_1fr] lg:gap-10 lg:px-12">
         <div className="order-1 flex flex-col gap-5 text-center lg:text-left">
 
           <div className="space-y-3">
@@ -37,7 +38,7 @@ const HeroSection = ({
               Souza
             </h1>
             <p className="text-base text-gray-300 sm:text-lg">
-              Desenvolvedor Full Stack | Front-end & Back-end
+              Desenvolvedor Full Stack 
             </p>
           </div>
 
@@ -66,7 +67,15 @@ const HeroSection = ({
         <div className="order-2 relative mx-auto w-48 sm:w-56 md:w-64 lg:w-96">
           <div className="absolute inset-0 rounded-full bg-[#fdb003]/25 blur-3xl" />
           <div className="relative aspect-square overflow-hidden rounded-full border border-[#fdb003]/30 bg-[var(--es-surface-2)] shadow-[0_0_50px_rgba(253,176,3,0.28)] lg:shadow-[0_0_65px_rgba(253,176,3,0.3)]">
-            <Image src={euDigital} alt="Erackson Souza" fill className="object-cover" priority />
+            <Image
+              src={euDigital}
+              alt="Erackson Souza"
+              fill
+              className="object-cover"
+              priority
+              quality={80}
+              sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 384px"
+            />
           </div>
         </div>
 
@@ -91,6 +100,8 @@ const HeroSection = ({
           </Link>
         </div>
       </div>
+
+      <AnimatedScrollIndicator href="/#about" ariaLabel="Rolar para a seção Sobre" />
     </section>
   );
 };

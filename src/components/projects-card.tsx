@@ -160,6 +160,8 @@ export default function ProjectsCard() {
                         alt={projeto.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        quality={75}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
