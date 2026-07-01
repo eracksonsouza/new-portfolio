@@ -33,22 +33,16 @@ const Projetos = [
   },
   {
     id: 3,
-    title: "FINANCE CONTROL",
+    title: "LUMICARE",
     description:
-      "Aplicação web para gestão financeira pessoal, desenvolvida com React, TypeScript, Supabase e Tailwind CSS. Permite registrar receitas e despesas, categorizar transações e visualizar gráficos interativos que ajudam o usuário a entender e controlar seu orçamento. O sistema conta com autenticação segura e armazenamento persistente.",
+      "Plataforma de saúde mental voltada a estudantes universitários. Oferece um diário emocional para registro e acompanhamento de sentimentos ao longo do tempo, com frases de incentivo e desafios diários de bem-estar. O objetivo é ajudar os estudantes a desenvolverem autoconhecimento e cuidarem da própria saúde emocional na rotina.",
     impact:
-      "Ajudar pessoas a organizarem suas finanças e visualizarem seus hábitos de gasto de forma prática e intuitiva.",
-    image: "/assets/projetos/finance-control.png",
-    link: "https://finance-control-psi.vercel.app/",
-    repository: "https://github.com/eracksonsouza/finance-pocket",
-    site: "https://finance-control-psi.vercel.app/",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Better Auth",
-      "Supabase",
-    ],
+      "Apoiar a saúde mental de estudantes universitários, incentivando o autocuidado e o acompanhamento emocional no dia a dia.",
+    image: "/assets/projetos/lumicare-banner.png",
+    link: "https://lumicare-app.vercel.app/",
+    repository: "https://github.com/eracksonsouza/lumiCare-front",
+    site: "https://lumicare-app.vercel.app/",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
     id: 4,
