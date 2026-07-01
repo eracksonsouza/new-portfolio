@@ -7,7 +7,7 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Sobre Mim",
   description:
-    "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, graduando em Análise e Desenvolvimento de Sistemas. Experiência com React, Next.js, TypeScript, Node.js e mais.",
+    "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, Analista e Desenvolvedor de Sistemas (graduação concluída). Experiência com React, Next.js, TypeScript, Node.js e mais.",
   keywords: [
     "Sobre Erackson Souza",
     "Desenvolvedor Full-Stack",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sobre Mim | Erackson Souza",
     description:
-      "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, graduando em Análise e Desenvolvimento de Sistemas.",
+      "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, Analista e Desenvolvedor de Sistemas (graduação concluída).",
     url: "https://erackson-souza.vercel.app/about",
     type: "profile",
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Sobre Mim | Erackson Souza",
     description:
-      "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, graduando em Análise e Desenvolvimento de Sistemas.",
+      "Conheça mais sobre Erackson Souza - Desenvolvedor Web Full-Stack, Analista e Desenvolvedor de Sistemas (graduação concluída).",
   },
   alternates: {
     canonical: "https://erackson-souza.vercel.app/about",
