@@ -19,11 +19,11 @@ const defaultEducation: EducationItem[] = [
     title: "Análise e Desenvolvimento de Sistemas",
     institution: "Universidade Estácio de Sá",
     location: "Mossoró, RN",
-    period: "2024 — Atual",
-    duration: "Em andamento",
-    status: "Cursando",
+    period: "2024 — 2026",
+    duration: "Graduação concluída",
+    status: "Concluído",
     description:
-      "Base sólida em fundamentos de desenvolvimento, engenharia de software e segurança, aplicando conceitos em projetos práticos.",
+      "Graduação concluída como Analista e Desenvolvedor de Sistemas, com base sólida em fundamentos de desenvolvimento, engenharia de software e segurança, aplicando conceitos em projetos práticos.",
   },
 ];
 
@@ -47,7 +47,7 @@ const EducationSection = ({
           <h2 id="education-title" className="text-3xl font-bold text-white md:text-4xl">
             Acadêmica
           </h2>
-          <p className="text-base text-gray-400 md:text-lg">2024 · Atualmente</p>
+          <p className="text-base text-gray-400 md:text-lg">2024 · 2026</p>
         </header>
 
         <div className="space-y-5">
