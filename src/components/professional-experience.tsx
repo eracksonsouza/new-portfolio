@@ -10,6 +10,9 @@ type Experience = {
   highlights?: string[];
   stacks?: string[];
   isCurrent?: boolean;
+  logo?: string;
+  logoAlt?: string;
+  logoBg?: string;
 };
 
 type ProfessionalExperienceProps = {
@@ -18,11 +21,41 @@ type ProfessionalExperienceProps = {
 
 const defaultExperiences: Experience[] = [
   {
+    title: "Desenvolvedor Full Stack · Freelance",
+    company: "EcoResort Vale do Rossim",
+    location: "Remoto",
+    period: "Mai 2026 — Atual",
+    logo: "/assets/LogoVR.png",
+    logoAlt: "Logo EcoResort Vale do Rossim",
+    description:
+      "Desenvolvimento do sistema de reservas completo — backend REST com Node.js, Fastify, Drizzle ORM e PostgreSQL, e frontend em React.js + Vite + TypeScript + Tailwind CSS.",
+    highlights: [
+      "Criação do painel administrativo para gestão de acomodações, eventos e disponibilidade pelos proprietários do resort.",
+      "Configuração de gateway de pagamento e implementação das regras de negócio do fluxo de reservas.",
+      "Integração com channel manager (SiteMinder) para sincronização de disponibilidade em tempo real com OTAs (Airbnb, Odisseias).",
+      "Responsável pelas decisões de arquitetura, modelagem de banco de dados e integrações com sistemas externos.",
+    ],
+    stacks: [
+      "Node.js",
+      "Fastify",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "React.js",
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+    isCurrent: true,
+  },
+  {
     title: "Desenvolvedor Web | Automações e Projetos Full-Stack",
     company: "DevQuest",
     location: "Remoto",
     period: "Atual",
     duration: "Função atual",
+    logo: "/assets/devquest-logo.png",
+    logoAlt: "Logo DevQuest",
+    logoBg: "bg-transparent",
     description:
       "Atuo como Desenvolvedor Web, com foco em automações, desenvolvimento de aplicações e projetos educacionais full-stack, contribuindo para a evolução técnica da plataforma e para o aprendizado prático dos alunos.",
     highlights: [
@@ -49,6 +82,9 @@ const defaultExperiences: Experience[] = [
     location: "Remoto",
     period: "Dez 2024 — Atual",
     duration: "1 ano +",
+    logo: "/assets/devquest-logo.png",
+    logoAlt: "Logo DevQuest",
+    logoBg: "bg-transparent",
     description:
       "Atuo na análise e revisão de código (Code Review) de centenas de alunos, garantindo a aplicação de boas práticas em React, TypeScript e Node.js.",
     highlights: [
@@ -66,15 +102,6 @@ const defaultExperiences: Experience[] = [
       "PostgreSQL",
       "Git",
     ],
-  },
-  {
-    title: "Desenvolvedor Full-Stack (Freelance)",
-    company: "Projetos autorais e clientes diretos",
-    location: "Remoto",
-    period: "Jan 2024 — Out 2024",
-    duration: "10 meses",
-    description:
-      "Criação de landing pages e produtos internos usando Next.js, Tailwind CSS e integrações com APIs, priorizando performance e clareza visual.",
   },
 ];
 
@@ -104,10 +131,27 @@ const ProfessionalExperience = ({
               <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <h3 className="text-xl font-semibold text-white md:text-2xl">{experience.title}</h3>
-                  <p className="mt-1 text-sm text-gray-300">
-                    {experience.company} <span className="mx-2 text-gray-500">•</span>
-                    <span className="text-gray-400">{experience.location}</span>
-                  </p>
+                  <div className="mt-1 flex items-center gap-2 text-sm text-gray-300">
+                    {experience.logo && (
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-md ${
+                          experience.logoBg ?? "bg-white p-1"
+                        }`}
+                      >
+                        <Image
+                          src={experience.logo}
+                          alt={experience.logoAlt || experience.company}
+                          width={72}
+                          height={72}
+                          className="h-full w-full object-contain"
+                        />
+                      </span>
+                    )}
+                    <span>
+                      {experience.company} <span className="mx-2 text-gray-500">•</span>
+                      <span className="text-gray-400">{experience.location}</span>
+                    </span>
+                  </div>
                 </div>
 
                 {experience.isCurrent && (
@@ -144,8 +188,10 @@ const ProfessionalExperience = ({
               )}
 
               <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm">
-                <span className="font-semibold text-[#fdb003]">{experience.duration || "Período"}</span>
-                <span className="text-gray-400">{experience.period}</span>
+                {experience.duration && (
+                  <span className="font-semibold text-[#fdb003]">{experience.duration}</span>
+                )}
+                <span className="ml-auto text-gray-400">{experience.period}</span>
               </div>
             </article>
           ))}
