@@ -10,6 +10,8 @@ type Experience = {
   highlights?: string[];
   stacks?: string[];
   isCurrent?: boolean;
+  /** Quando presente, o card inteiro vira link e ganha a seta. */
+  url?: string;
   logo?: string;
   logoAlt?: string;
   logoBg?: string;
@@ -105,6 +107,22 @@ const defaultExperiences: Experience[] = [
   },
 ];
 
+const ArrowIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform duration-200 group-hover/card:-translate-y-1 group-hover/card:translate-x-1 motion-reduce:transition-none"
+    aria-hidden="true"
+  >
+    <path
+      fillRule="evenodd"
+      d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z"
+      clipRule="evenodd"
+    />
+  </svg>
+);
+
 const ProfessionalExperience = ({
   experiences = defaultExperiences,
 }: ProfessionalExperienceProps) => {
@@ -112,90 +130,141 @@ const ProfessionalExperience = ({
     <section className="mb-20" aria-labelledby="experience-title">
       <div className="space-y-8">
         <header className="space-y-3">
-          <p className="inline-flex items-center gap-2 rounded-full border border-[#fdb003]/35 bg-[#101722] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#fdb003]">
-            <Image src="/brief-icon.png" alt="" width={20} height={20} aria-hidden />
+          <p className="inline-flex items-center gap-2 rounded-full border border-[var(--es-accent)]/35 bg-[var(--es-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--es-accent)]">
+            <Image
+              src="/brief-icon.png"
+              alt=""
+              width={20}
+              height={20}
+              aria-hidden
+            />
             Carreira
           </p>
-          <h2 id="experience-title" className="text-3xl font-bold text-white md:text-4xl">
+          <h2
+            id="experience-title"
+            className="text-3xl font-bold text-white md:text-4xl"
+          >
             Área profissional
           </h2>
-          <p className="text-base text-gray-400 md:text-lg">2024 · Atualmente</p>
+          <p className="text-base text-gray-400 md:text-lg">
+            2024 · Atualmente
+          </p>
         </header>
 
-        <div className="space-y-5">
-          {experiences.map((experience) => (
-            <article
-              key={`${experience.title}-${experience.company}`}
-              className="rounded-2xl border border-white/12 bg-[#101722]/90 p-6 md:p-7"
-            >
-              <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-xl font-semibold text-white md:text-2xl">{experience.title}</h3>
-                  <div className="mt-1 flex items-center gap-2 text-sm text-gray-300">
-                    {experience.logo && (
-                      <span
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-md ${
-                          experience.logoBg ?? "bg-white p-1"
-                        }`}
-                      >
-                        <Image
-                          src={experience.logo}
-                          alt={experience.logoAlt || experience.company}
-                          width={72}
-                          height={72}
-                          className="h-full w-full object-contain"
-                        />
-                      </span>
+        {/* group/list: passar o mouse em um card apaga levemente os outros */}
+        <ol className="group/list">
+          {experiences.map((experience) => {
+            const heading = (
+              <>
+                {experience.title}
+                <span className="text-gray-400"> · </span>
+                {experience.company}
+                {experience.url && <ArrowIcon />}
+              </>
+            );
+
+            return (
+              <li
+                key={`${experience.title}-${experience.company}`}
+                className="mb-4"
+              >
+                <div className="group/card relative grid gap-3 py-5 transition-opacity duration-300 sm:grid-cols-8 sm:gap-6 hover:opacity-100! group-hover/list:opacity-50 motion-reduce:transition-none">
+                  {/* superfície que acende no hover. Fica sempre montada e só
+                      troca de opacidade — transição barata e suave. O `hover:`
+                      do Tailwind v4 já só vale em dispositivo com mouse. */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 -inset-x-4 z-0 rounded-xl bg-[var(--es-surface-2)] opacity-0 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.65),inset_0_1px_0_0_rgba(255,255,255,0.07)] ring-1 ring-[var(--es-accent)]/15 transition-opacity duration-300 group-hover/card:opacity-100 lg:-inset-x-6 motion-reduce:transition-none"
+                  />
+
+                  <div className="relative z-10 sm:col-span-2">
+                    <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                      {experience.period}
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 sm:col-span-6">
+                    <h3 className="font-semibold leading-snug text-white transition-colors group-hover/card:text-[var(--es-accent)] motion-reduce:transition-none">
+                      {experience.url ? (
+                        <a
+                          href={experience.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-baseline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--es-accent)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--es-bg-soft)]"
+                        >
+                          {/* expande a área clicável para o card inteiro */}
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0 hidden rounded-lg lg:block"
+                          />
+                          <span>{heading}</span>
+                        </a>
+                      ) : (
+                        heading
+                      )}
+                    </h3>
+
+                    <p className="mt-1 flex flex-wrap items-center gap-x-2 text-xs text-gray-500">
+                      {experience.logo && (
+                        <span
+                          className={`inline-flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-sm ${
+                            experience.logoBg ?? "bg-white p-0.5"
+                          }`}
+                        >
+                          <Image
+                            src={experience.logo}
+                            alt={experience.logoAlt || experience.company}
+                            width={40}
+                            height={40}
+                            className="h-full w-full object-contain"
+                          />
+                        </span>
+                      )}
+                      <span>{experience.location}</span>
+                      {experience.duration && (
+                        <>
+                          <span aria-hidden="true">·</span>
+                          <span>{experience.duration}</span>
+                        </>
+                      )}
+                    </p>
+
+                    <p className="mt-3 text-sm leading-relaxed text-gray-400">
+                      {experience.description}
+                    </p>
+
+                    {experience.highlights &&
+                      experience.highlights.length > 0 && (
+                        <ul className="mt-3 space-y-1.5 text-sm leading-relaxed text-gray-400">
+                          {experience.highlights.map((item) => (
+                            <li key={item} className="flex gap-2.5">
+                              <span
+                                aria-hidden="true"
+                                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gray-600"
+                              />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                    {experience.stacks && experience.stacks.length > 0 && (
+                      <ul className="mt-4 flex flex-wrap gap-2">
+                        {experience.stacks.map((stack) => (
+                          <li key={stack}>
+                            <span className="inline-flex items-center rounded-full bg-[var(--es-accent)]/10 px-3 py-1 text-xs font-medium leading-5 text-[var(--es-accent)]">
+                              {stack}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                    <span>
-                      {experience.company} <span className="mx-2 text-gray-500">•</span>
-                      <span className="text-gray-400">{experience.location}</span>
-                    </span>
                   </div>
                 </div>
-
-                {experience.isCurrent && (
-                  <span className="inline-flex items-center rounded-full border border-[#fdb003]/40 bg-[#fdb003]/10 px-3 py-1 text-xs font-semibold text-[#fdb003]">
-                    Atual
-                  </span>
-                )}
-              </div>
-
-              <p className="text-sm leading-relaxed text-gray-300 md:text-base">{experience.description}</p>
-
-              {experience.highlights && experience.highlights.length > 0 && (
-                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-gray-300 md:text-base">
-                  {experience.highlights.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <span className="mt-1 text-[#fdb003]">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {experience.stacks && experience.stacks.length > 0 && (
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {experience.stacks.map((stack) => (
-                    <span
-                      key={stack}
-                      className="rounded-full border border-[#fdb003]/30 bg-[#fdb003]/8 px-3 py-1 text-xs font-medium text-[#fdb003]"
-                    >
-                      {stack}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm">
-                {experience.duration && (
-                  <span className="font-semibold text-[#fdb003]">{experience.duration}</span>
-                )}
-                <span className="ml-auto text-gray-400">{experience.period}</span>
-              </div>
-            </article>
-          ))}
-        </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );
