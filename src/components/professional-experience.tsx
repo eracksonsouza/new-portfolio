@@ -26,7 +26,9 @@ const defaultExperiences: Experience[] = [
     title: "Desenvolvedor Full Stack · Freelance",
     company: "EcoResort Vale do Rossim",
     location: "Remoto",
-    period: "Mai 2026 — Atual",
+    period: "Mai 2026 — Ago 2026",
+    duration: "4 meses",
+    url: "https://www.valedorossim.com/",
     logo: "/assets/LogoVR.png",
     logoAlt: "Logo EcoResort Vale do Rossim",
     description:
@@ -47,7 +49,6 @@ const defaultExperiences: Experience[] = [
       "TypeScript",
       "Tailwind CSS",
     ],
-    isCurrent: true,
   },
   {
     title: "Desenvolvedor Web | Automações e Projetos Full-Stack",
