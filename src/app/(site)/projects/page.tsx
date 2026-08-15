@@ -1,4 +1,4 @@
-import ProjectsCard from "@/components/projects-card";
+import ProjectsSection from "@/components/projects/projects-section";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 const ProjectsPage = () => {
-  return <ProjectsCard />;
+  return <ProjectsSection />;
 };
 
 export default ProjectsPage;
