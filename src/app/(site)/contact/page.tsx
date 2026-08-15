@@ -1,7 +1,6 @@
 import ContactForm from "@/components/contact-form";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 
 export const metadata: Metadata = {
   title: "Contato",
@@ -56,39 +55,6 @@ const ContactPage = () => {
               >
                 erackson05@gmail.com
               </Link>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-sm text-gray-400">Me acompanhe por aqui</p>
-              <div className="flex items-center gap-3">
-                <Link
-                  href="https://github.com/eracksonsouza"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="rounded-md border border-white/15 bg-[var(--es-surface)] p-2.5 text-white transition-colors hover:border-[#fdb003]/60 hover:text-[#fdb003]"
-                >
-                  <FaGithub size={18} />
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/eracksonsouza/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="rounded-md border border-white/15 bg-[var(--es-surface)] p-2.5 text-white transition-colors hover:border-[#fdb003]/60 hover:text-[#fdb003]"
-                >
-                  <FaLinkedinIn size={18} />
-                </Link>
-                <Link
-                  href="https://wa.me/+5584991153472"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="rounded-md border border-white/15 bg-[var(--es-surface)] p-2.5 text-white transition-colors hover:border-[#fdb003]/60 hover:text-[#fdb003]"
-                >
-                  <FaWhatsapp size={18} />
-                </Link>
-              </div>
             </div>
           </section>
 
